@@ -183,11 +183,13 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
         body::-webkit-scrollbar {
             width: 0;
             height: 0;
             display: none;
         }
+
         .pay-toast {
             position: fixed;
             right: 20px;
@@ -208,13 +210,16 @@
             transition: all 0.2s ease;
             pointer-events: none;
         }
+
         .pay-toast.show {
             opacity: 1;
             transform: translateY(0);
         }
+
         .pay-toast.success {
             border-color: rgba(16, 185, 129, 0.55);
         }
+
         .pay-toast.error {
             border-color: rgba(239, 68, 68, 0.55);
         }
@@ -298,17 +303,17 @@
                     </div>
                     <h2 class="text-xl font-bold text-militaryAccent">月会员</h2>
                 </div>
-                <div class="line-through text-red-400 text-sm mb-1">¥39</div>
-                <div class="text-yellow-400 text-lg font-bold mb-1">会员价: ¥19.9</div>
-                <div class="text-light text-sm mb-3">30天</div>
+                <div class="line-through text-red-400 text-sm mb-1">¥147</div>
+                <div class="text-yellow-400 text-lg font-bold mb-1">会员价: ¥90（3个月起）</div>
+                <div class="text-light text-sm mb-3">90天 · ¥30/月 · 不支持单月购买</div>
                 <ul class="mb-4 text-light text-sm space-y-1">
                     <li><strong class="text-yellow-400">会员时长档位（互斥）</strong></li>
-                    <li>包含：命令行修改、语音、对战模拟、全地图、全模式</li>
-                    <li>不包含：主播弹幕/防守图生成/兵种定制等</li>
+                    <li>最低开通 3 个月</li>
+                    <li>包含：命令行修改、语音、全地图、全模式</li>
+                    <li>不包含：主播弹幕/防守图生成/兵种定制/对战模拟等</li>
                 </ul>
                 <a class="buy-btn bg-militaryAccent text-white font-bold py-2 px-4 rounded text-center mt-auto"
-                    data-plan-code="monthly"
-                    href="#"><i class="fa fa-star"></i> 立即开通</a>
+                    data-plan-code="monthly" href="#"><i class="fa fa-star"></i> 立即开通</a>
             </div>
             <!-- 年度会员 -->
             <div class="card-hover rounded-xl border border-militaryAccent/30 shadow-lg w-full max-w-xs p-6 flex flex-col"
@@ -319,17 +324,16 @@
                     </div>
                     <h2 class="text-xl font-bold text-militaryAccent">年度会员</h2>
                 </div>
-                <div class="line-through text-red-400 text-sm mb-1">¥129</div>
-                <div class="text-yellow-400 text-lg font-bold mb-1">会员价: ¥89.9</div>
+                <div class="line-through text-red-400 text-sm mb-1">¥320</div>
+                <div class="text-yellow-400 text-lg font-bold mb-1">会员价: ¥199</div>
                 <div class="text-light text-sm mb-3">365天</div>
                 <ul class="mb-4 text-light text-sm space-y-1">
                     <li><strong class="text-yellow-400">会员时长档位（互斥）</strong></li>
-                    <li>包含：命令行修改、语音、对战模拟、全地图、全模式</li>
-                    <li>不包含：主播弹幕/防守图生成/兵种定制等</li>
+                    <li>包含：命令行修改、语音、全地图、全模式</li>
+                    <li>不包含：主播弹幕/防守图生成/兵种定制/对战模拟等</li>
                 </ul>
                 <a class="buy-btn bg-militaryAccent text-white font-bold py-2 px-4 rounded text-center mt-auto"
-                    data-plan-code="yearly"
-                    href="#"><i class="fa fa-gift"></i> 立即开通</a>
+                    data-plan-code="yearly" href="#"><i class="fa fa-gift"></i> 立即开通</a>
             </div>
             <!-- 终身会员 -->
             <div class="card-hover rounded-xl border border-militaryAccent/30 shadow-lg w-full max-w-xs p-6 flex flex-col"
@@ -345,13 +349,12 @@
                 <div class="text-light text-sm mb-3">一次购买，长期使用当前会员基础功能</div>
                 <ul class="mb-4 text-light text-sm space-y-1">
                     <li><strong class="text-yellow-400">会员时长档位（互斥）</strong></li>
-                    <li><strong class="text-yellow-400">长期使用已购会员基础功能（命令行修改、语音、对战模拟、全地图、全模式）</strong></li>
+                    <li><strong class="text-yellow-400">长期使用已购会员基础功能（命令行修改、语音、全地图、全模式）</strong></li>
                     <li>在本产品生命周期内，已购会员基础功能提供持续维护与常规更新</li>
                     <li>未来新增独立功能、扩展权限或新服务不默认包含，具体以发布说明为准</li>
                 </ul>
                 <a class="buy-btn bg-militaryAccent text-white font-bold py-2 px-4 rounded text-center mt-auto"
-                    data-plan-code="lifetime"
-                    href="#"><i class="fa fa-diamond"></i> 立即开通</a>
+                    data-plan-code="lifetime" href="#"><i class="fa fa-diamond"></i> 立即开通</a>
             </div>
             <!-- 扩展权限（组合布局） -->
             <div class="card-hover rounded-xl border border-militaryAccent/30 shadow-lg w-full max-w-2xl p-6 flex flex-col"
@@ -368,14 +371,16 @@
                 <ul class="mb-4 text-light text-sm space-y-1">
                     <li><strong class="text-yellow-400">① 主播权限：¥200/月</strong></li>
                     <li>直播弹幕控制红警、适配抖音、游戏更新优化、直播专用稳定维护</li>
-                    <li><strong class="text-yellow-400">② 防守图生成权限：【每日30次】</strong></li>
+                    <li><strong class="text-yellow-400">② 防守图生成权限：【每一张1元】</strong></li>
                     <li>地图编辑器全功能、可自主生成地图、持续更新模板与算法</li>
-                    <li><strong class="text-yellow-400">以上两项均不包含在任何会员里</strong></li>
+                    <li><strong class="text-yellow-400">③ 对战模拟权限：【每一次10元】</strong></li>
+                    <li>兵种对战模拟全功能、按次扣费启动，适合视频制作与平衡测试；白名单用户不限次数</li>
+                    <li><strong class="text-yellow-400">以上两项均不包含在任何会员里，按次购买后使用</strong></li>
                 </ul>
                 <a class="buy-btn bg-militaryAccent text-white font-bold py-2 px-4 rounded text-center mt-auto"
                     href="#"><i class="fa fa-trophy"></i> 立即咨询</a>
             </div>
-                  
+
             <!-- 兵种定制（独立布局） -->
             <div class="card-hover rounded-xl border border-militaryAccent/30 shadow-lg w-full max-w-xl p-6 flex flex-col"
                 style="background-color:#283040;">
@@ -481,7 +486,7 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var PAY_API_BASE = 'https://api.liuwentianhj.cc';
+            var PAY_API_BASE = 'https://api.liuwentianhj.cn';
             var modal = document.getElementById('sponsorModal');
             var closeBtn = document.getElementById('closeSponsorModal');
             var loginGuideModal = document.getElementById('loginGuideModal');
@@ -532,7 +537,7 @@
                     headers: authHeaders(),
                 });
                 var body = {};
-                try { body = await res.json(); } catch (_e) {}
+                try { body = await res.json(); } catch (_e) { }
                 if (!res.ok) {
                     throw new Error(body.error || body.message || ('配置检查失败(' + res.status + ')'));
                 }
@@ -543,13 +548,17 @@
             }
 
             async function createMockOrder(planCode) {
+                var payload = { planCode: planCode };
+                if (planCode === 'monthly') {
+                    payload.months = 3;
+                }
                 var res = await fetch(PAY_API_BASE + '/api/pay/mock/create', {
                     method: 'POST',
                     headers: authHeaders(),
-                    body: JSON.stringify({ planCode: planCode }),
+                    body: JSON.stringify(payload),
                 });
                 var body = {};
-                try { body = await res.json(); } catch (_e) {}
+                try { body = await res.json(); } catch (_e) { }
                 if (!res.ok || !body.success) {
                     throw new Error(body.error || body.message || ('下单失败(' + res.status + ')'));
                 }
