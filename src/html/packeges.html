@@ -12,403 +12,304 @@
     <script src="../js/tailwind.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .bg-grid {
-                background-image: 
-                    linear-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1px, transparent 1px);
-                background-size: 20px 20px;
-            }
-            .card-hover {
-                transition: all 0.3s ease;
-            }
-            .card-hover:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.2);
-            }
-            .modal-overlay {
-                display: none;
-                inset: 0;
-                background: rgba(0,0,0,0.7);
-                z-index: 9999;
-         
-          
-            }
-            .modal-content {
-                background: #283040;
-                border-radius: 18px;
-                box-shadow: 0 0 32px #0EA5E9;
-                padding: 32px 24px;
-                width: auto;
-                max-width: 360px;
-                max-height: 90vh;
-                display: flex;
-                position: absolute;
-               left: 50%;
-               top: 50%;
-                transform: translate(-50%, -50%);
-                flex-direction: column;
-                align-items: center;
-                overflow: auto;
-            }
-            .modal-title {
-                color: #0EA5E9;
-                font-size: 1.2rem;
-                font-weight: bold;
-                margin-bottom: 12px;
-                text-align: center;
-            }
-            .modal-qrcode {
-                max-width: 320px;
-                width: 100%;
-                border-radius: 12px;
-                box-shadow: 0 2px 16px #0EA5E9;
-                margin-bottom: 18px;
-            }
-            .modal-close {
-                margin-top: 8px;
-                padding: 8px 24px;
-                background: #0EA5E9;
-                color: #fff;
-                border: none;
-                border-radius: 6px;
-                font-weight: bold;
-                cursor: pointer;
-            }
-            .guide-actions {
-                display: flex;
-                gap: 10px;
-                margin-top: 14px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .guide-btn {
-                padding: 8px 16px;
-                border-radius: 8px;
-                border: none;
-                cursor: pointer;
-                font-weight: bold;
-            }
-            .guide-btn-primary {
-                background: #0EA5E9;
-                color: #fff;
-            }
-            .guide-btn-secondary {
-                background: #3b4252;
-                color: #dbeafe;
-            }
-            
-            /* 自定义套餐图标 */
-            .package-title {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                margin-bottom: 8px;
-            }
-            
-            .package-title-icon {
-                font-size: 20px;
-                width: 24px;
-                height: 24px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 6px;
-                transition: all 0.3s ease;
-            }
-            
-            .trial-title-icon {
-                color: #10B981;
-                background: rgba(16, 185, 129, 0.1);
-            }
-            
-            .monthly-title-icon {
-                color: #F59E0B;
-                background: rgba(245, 158, 11, 0.1);
-            }
-            
-            .halfyear-title-icon {
-                color: #8B5CF6;
-                background: rgba(139, 92, 246, 0.1);
-            }
-            
-            .yearly-title-icon {
-                color: #EF4444;
-                background: rgba(239, 68, 68, 0.1);
-            }
-            
-            .threeyear-title-icon {
-                color: #EC4899;
-                background: rgba(236, 72, 153, 0.1);
-            }
-            
-            .lifetime-title-icon {
-                color: #F59E0B;
-                background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(185, 28, 28, 0.2));
-                animation: iconPulse 2s infinite;
-            }
-            
-            @keyframes iconPulse {
-                0%, 100% {
-                    transform: scale(1);
-                }
-                50% {
-                    transform: scale(1.1);
-                }
-            }
-        }
-    </style>
-</head>
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    militaryDark: '#212429',
-                    militaryMedium: '#283040',
-                    militaryAccent: '#0EA5E9',
-                    secondary: '#38bdf8',
-                    light: '#94a3b8'
-                }
-            }
-        }
-    }
-</script>
-
-<body class="bg-militaryDark text-white font-military bg-grid">
+    <link rel="stylesheet" href="../css/site-theme.css">
+    <script>var _0x4053e4=_0x3869;(function(_0x56ca74,_0x5ee615){var _0x471524={_0x15f4d7:0x97,_0x38a925:0x96,_0x1e7595:0x91,_0x527f9a:0x8e,_0x2a3dac:0x88},_0x24c436=_0x3869,_0x41334b=_0x56ca74();while(!![]){try{var _0x30c8e2=-parseInt(_0x24c436(_0x471524._0x15f4d7))/(-0x1889*0x1+0x4*0x7e8+0x1*-0x716)*(parseInt(_0x24c436(_0x471524._0x38a925))/(-0x126f+-0x1c*0x160+0x2b*0x153))+parseInt(_0x24c436(0x8f))/(-0x7fb*-0x3+-0xe*0x2bd+0xe68)+-parseInt(_0x24c436(_0x471524._0x1e7595))/(-0x1*-0x23b1+0x10f7+-0x118c*0x3)*(-parseInt(_0x24c436(_0x471524._0x527f9a))/(0x1*-0x2373+-0x178f+-0x45*-0xdb))+parseInt(_0x24c436(0x93))/(-0x1*-0x1a06+-0x11*-0x119+-0x2ca9)*(-parseInt(_0x24c436(0x8c))/(0x4f*-0x4f+-0x1c78+0x34e0))+-parseInt(_0x24c436(0x8b))/(-0x1*-0x1d61+0x1f64+0xd5*-0x49)*(parseInt(_0x24c436(0x99))/(-0x8d2+0x1*0x177e+-0xea3))+parseInt(_0x24c436(0x89))/(0x14e*-0x15+-0x1*0x1cea+0x385a)+parseInt(_0x24c436(_0x471524._0x2a3dac))/(-0x286+0x2*-0x581+-0x19*-0x8b)*(parseInt(_0x24c436(0x90))/(0x1*-0x204f+-0x1537*0x1+0x1*0x3592));if(_0x30c8e2===_0x5ee615)break;else _0x41334b['push'](_0x41334b['shift']());}catch(_0x2680f5){_0x41334b['push'](_0x41334b['shift']());}}}(_0x3d4b,0x89d47+0x1*-0x6b3a1+0x2897a),tailwind[_0x4053e4(0x98)]={'theme':{'extend':{'colors':{'primary':_0x4053e4(0x85)+'0','secondary':_0x4053e4(0x8a)+'0','dark':_0x4053e4(0x87)+'A','light':'#AAAAA'+'A','militaryDark':_0x4053e4(0x86)+'A','militaryMedium':'#1E293'+'B','militaryLight':'#33415'+'5','militaryAccent':_0x4053e4(0x94)+'9'},'fontFamily':{'military':[_0x4053e4(0x92)+'ni','Arial',_0x4053e4(0x95)+_0x4053e4(0x8d)]}}}});function _0x3869(_0x190567,_0x2d171e){_0x190567=_0x190567-(0x5*0x78+0x1313+-0x14e6);var _0x29aaeb=_0x3d4b();var _0x404973=_0x29aaeb[_0x190567];if(_0x3869['lReuTh']===undefined){var _0x426fe5=function(_0x564960){var _0x4098ac='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x95977f='',_0x3cf33d='';for(var _0x3598c5=0x11*0x1eb+-0x266e+0x5d3,_0x429596,_0x3964d9,_0x193049=0x9d0+0x1c36+0x3e*-0x9d;_0x3964d9=_0x564960['charAt'](_0x193049++);~_0x3964d9&&(_0x429596=_0x3598c5%(-0x1*0xa16+0x2b9*-0xe+-0x8*-0x607)?_0x429596*(-0x1*0x8f2+0x5*0x2a1+-0x151*0x3)+_0x3964d9:_0x3964d9,_0x3598c5++%(-0xf08+-0x162a+0x2*0x129b))?_0x95977f+=String['fromCharCode'](0x90d*0x4+-0x11bd*0x1+-0x56*0x34&_0x429596>>(-(-0x22eb+0x2323+-0x36)*_0x3598c5&-0x13*-0x188+-0x1c27+0x5*-0x2f)):0x4cf+0x1*-0x20e+-0xeb*0x3){_0x3964d9=_0x4098ac['indexOf'](_0x3964d9);}for(var _0xb2ead=0xa19*0x2+-0x38f*0x3+-0x985,_0x237fb7=_0x95977f['length'];_0xb2ead<_0x237fb7;_0xb2ead++){_0x3cf33d+='%'+('00'+_0x95977f['charCodeAt'](_0xb2ead)['toString'](0x1*-0xc4+-0x1*0x258d+-0xf*-0x28f))['slice'](-(0x60b*-0x1+-0x5b3+-0x8*-0x178));}return decodeURIComponent(_0x3cf33d);};_0x3869['kABFpm']=_0x426fe5,_0x3869['mICEjg']={},_0x3869['lReuTh']=!![];}var _0x420f78=_0x29aaeb[0x18e6+0x249b+-0x3d81],_0x2771c5=_0x190567+_0x420f78,_0x11bdb1=_0x3869['mICEjg'][_0x2771c5];return!_0x11bdb1?(_0x404973=_0x3869['kABFpm'](_0x404973),_0x3869['mICEjg'][_0x2771c5]=_0x404973):_0x404973=_0x11bdb1,_0x404973;}function _0x3d4b(){var _0x26af7a=['C2fUCY1Z','mte2mJK2BhnLuuDz','n3HmsfzQCa','y29UzMLN','nJm4mujhC0HYDG','i0ndmdaW','iZbgmtCY','iZbbmeeW','odeXoffzD2DSBG','nte4ntC5mhDbww1xDa','i0zgq0mW','ndK1mLLPD3PIrq','mtrpzu5ZsvG','zxjPzG','mJeWntK0nvrOrxrPra','ndm5ndG1B1zwu2fl','mZaYnhL3sKTlDG','ngXJwhnMCG','uMfQzgHH','nda0mtq4tur5Du5g','iZbfqtvf'];_0x3d4b=function(){return _0x26af7a;};return _0x3d4b();}</script>
     <style>
-        html,
-        body {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        html, body { -ms-overflow-style: none; scrollbar-width: none; }
+        body::-webkit-scrollbar { width: 0; height: 0; display: none; }
+
+        .bg-grid {
+            background-image:
+                linear-gradient(rgba(14, 165, 233, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 165, 233, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
         }
 
-        body::-webkit-scrollbar {
-            width: 0;
-            height: 0;
-            display: none;
+        .pkg-card {
+            background: rgba(15, 23, 42, 0.88);
+            border: 1px solid rgba(14, 165, 233, 0.28);
+            border-radius: 16px;
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+        }
+        .pkg-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(14, 165, 233, 0.55);
+            box-shadow: 0 12px 36px rgba(14, 165, 233, 0.18);
+        }
+        .pkg-card.is-recommend {
+            border-color: rgba(255, 204, 0, 0.55);
+            box-shadow: 0 0 32px rgba(255, 204, 0, 0.12);
+        }
+        .pkg-icon {
+            width: 36px; height: 36px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: #FFCC00;
+            background: rgba(255, 204, 0, 0.1);
+            border: 1px solid rgba(255, 204, 0, 0.25);
+            flex-shrink: 0;
+        }
+        .pkg-price { color: #FFCC00; font-weight: 800; font-size: 1.35rem; }
+        .pkg-old { color: #6b7280; text-decoration: line-through; font-size: 0.85rem; }
+
+        .buy-btn {
+            display: block; text-align: center; font-weight: 700;
+            padding: 0.65rem 1rem; border-radius: 10px;
+            background: linear-gradient(135deg, #990000, #CC0000);
+            color: #fff;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .buy-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(204, 0, 0, 0.35);
+        }
+        .buy-btn.is-ghost {
+            background: transparent;
+            border: 1px solid rgba(14, 165, 233, 0.45);
+            color: #7dd3fc;
+        }
+        .buy-btn.is-ghost:hover {
+            background: rgba(14, 165, 233, 0.12);
+            box-shadow: none;
+        }
+
+        .modal-overlay {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0, 0, 0, 0.75); z-index: 9999;
+        }
+        .modal-content {
+            background: #0F172A;
+            border: 1px solid rgba(14, 165, 233, 0.35);
+            border-radius: 16px;
+            box-shadow: 0 0 40px rgba(14, 165, 233, 0.2);
+            padding: 32px 24px;
+            max-width: 360px; max-height: 90vh;
+            display: flex; flex-direction: column; align-items: center;
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            overflow: auto;
+        }
+        .modal-title {
+            color: #FFCC00; font-size: 1.2rem; font-weight: bold;
+            margin-bottom: 12px; text-align: center;
+        }
+        .modal-qrcode {
+            max-width: 320px; width: 100%; border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(14, 165, 233, 0.35);
+            margin-bottom: 18px;
+        }
+        .modal-close {
+            margin-top: 8px; padding: 8px 24px;
+            background: #CC0000; color: #fff; border: none;
+            border-radius: 8px; font-weight: bold; cursor: pointer;
+        }
+        .guide-actions {
+            display: flex; gap: 10px; margin-top: 14px;
+            flex-wrap: wrap; justify-content: center;
+        }
+        .guide-btn {
+            padding: 8px 16px; border-radius: 8px; border: none;
+            cursor: pointer; font-weight: bold;
+        }
+        .guide-btn-primary { background: #CC0000; color: #fff; }
+        .guide-btn-secondary {
+            background: #1E293B; color: #dbeafe;
+            border: 1px solid rgba(14,165,233,0.3);
         }
 
         .pay-toast {
-            position: fixed;
-            right: 20px;
-            top: 20px;
-            z-index: 10000;
-            min-width: 240px;
-            max-width: 360px;
-            background: #1f2937;
-            color: #e5e7eb;
+            position: fixed; right: 20px; top: 20px; z-index: 10000;
+            min-width: 240px; max-width: 360px;
+            background: #0F172A; color: #e5e7eb;
             border: 1px solid rgba(14, 165, 233, 0.45);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-            border-radius: 10px;
-            padding: 10px 12px;
-            font-size: 14px;
-            line-height: 1.5;
-            opacity: 0;
-            transform: translateY(-8px);
-            transition: all 0.2s ease;
-            pointer-events: none;
+            border-radius: 10px; padding: 10px 12px;
+            font-size: 14px; line-height: 1.5;
+            opacity: 0; transform: translateY(-8px);
+            transition: all 0.2s ease; pointer-events: none;
         }
-
-        .pay-toast.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .pay-toast.success {
-            border-color: rgba(16, 185, 129, 0.55);
-        }
-
-        .pay-toast.error {
-            border-color: rgba(239, 68, 68, 0.55);
-        }
+        .pay-toast.show { opacity: 1; transform: translateY(0); }
+        .pay-toast.success { border-color: rgba(16, 185, 129, 0.55); }
+        .pay-toast.error { border-color: rgba(204, 0, 0, 0.55); }
     </style>
-    <!-- 导航栏 -->
+</head>
+
+<body class="bg-dark text-white font-military bg-grid min-h-screen">
     <nav class="fixed w-full z-50 bg-[#212429] border-b border-militaryAccent/30">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <a href="../../index.html" class="flex items-center">
-                        <img src="https://s2.loli.net/2025/02/27/qBZigrs7do91j48.png" alt="AI的复仇Logo"
-                            class="h-10 mr-3 rounded">
-                    </a>
-                </div>
+                <a href="../../index.html" class="flex items-center hover:opacity-90">
+                    <img src="https://s2.loli.net/2025/02/27/qBZigrs7do91j48.png" alt="AI的复仇Logo" class="h-10 mr-3 rounded">
+                    <span class="text-secondary font-bold text-lg hidden sm:inline">AI的复仇</span>
+                </a>
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="../../index.html#home"
-                        class="text-white hover:text-militaryAccent transition-colors">首页</a>
-                    <a href="./other-ra2.html" class="text-militaryAccent font-bold">其他红警</a>
-                    <a href="../../index.html#download"
-                        class="text-white hover:text-militaryAccent transition-colors">下载</a>
-                    <a href="../../index.html#vip-members"
-                        class="text-white hover:text-militaryAccent transition-colors">会员</a>
-                    <a href="../../index.html#about"
-                        class="text-white hover:text-militaryAccent transition-colors">关于</a>
+                    <a href="../../index.html#home" class="text-white hover:text-militaryAccent transition-colors font-bold">首页</a>
+                    <a href="./other-ra2.html" class="text-white hover:text-militaryAccent transition-colors font-bold">其他红警</a>
+                    <a href="../../index.html#download" class="text-white hover:text-militaryAccent transition-colors font-bold">下载</a>
+                    <a href="./tutorial.html" class="text-white hover:text-militaryAccent transition-colors font-bold">教学</a>
+                    <a href="./packeges.html" class="text-secondary font-bold">会员</a>
+                    <a href="../../index.html#about" class="text-white hover:text-militaryAccent transition-colors font-bold">关于</a>
                 </div>
-                <!-- 移动端菜单按钮 -->
-                <button class="md:hidden text-white" id="mobileMenuBtn">
+                <button class="md:hidden text-white" id="mobileMenuBtn" type="button">
                     <i class="fa fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
-        <!-- 移动端菜单 -->
         <div class="md:hidden bg-[#212429] border-b border-militaryAccent/30 hidden" id="mobileMenu">
             <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
                 <a href="../../index.html#home" class="py-2 text-white hover:text-militaryAccent">首页</a>
-                <a href="../other-ra2.html" class="py-2 text-militaryAccent font-bold">其他红警</a>
+                <a href="./other-ra2.html" class="py-2 text-white hover:text-militaryAccent">其他红警</a>
                 <a href="../../index.html#download" class="py-2 text-white hover:text-militaryAccent">下载</a>
-                <a href="../../index.html#vip-members" class="py-2 text-white hover:text-militaryAccent">会员</a>
+                <a href="./tutorial.html" class="py-2 text-white hover:text-militaryAccent">教学</a>
+                <a href="./packeges.html" class="py-2 text-secondary">会员</a>
                 <a href="../../index.html#about" class="py-2 text-white hover:text-militaryAccent">关于</a>
             </div>
         </div>
     </nav>
 
-    <!-- 页面标题区 -->
-    <section class="pt-24 pb-12 bg-militaryDark relative">
+    <section class="pt-28 pb-10 relative">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-3xl md:text-5xl font-bold text-secondary mb-4">AI的复仇 · 套餐权限</h1>
-            <p class="text-light max-w-2xl mx-auto">会员档位决定时长（互斥）并包含基础会员功能；主播/地图/兵种定制属于扩展权限，需单独开通。</p>
+            <p class="text-light max-w-2xl mx-auto text-sm md:text-base">
+                会员档位决定时长（互斥）并包含基础功能；主播 / 防守图 / 对战模拟 / 兵种定制为扩展权限，需单独开通。
+                <a href="./tutorial.html#member-features" class="text-militaryAccent hover:text-secondary underline ml-1">功能使用教程 →</a>
+            </p>
         </div>
     </section>
 
-    <!-- 套餐卡片区 -->
-    <section class="py-16 bg-militaryDark">
-        <div class="container mx-auto px-4 flex flex-wrap gap-8 justify-center">
-            <!-- 普通用户 -->
-            <div class="card-hover rounded-xl border border-militaryAccent/30 shadow-lg w-full max-w-xs p-6 flex flex-col"
-                style="background-color:#283040;">
-                <div class="package-title">
-                    <div class="package-title-icon trial-title-icon">
-                        <i class="fa fa-play"></i>
+    <section class="pb-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-xl font-bold text-secondary mb-6 flex items-center justify-center gap-2">
+                <i class="fa fa-diamond text-militaryAccent"></i> 会员时长档位
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 max-w-6xl mx-auto">
+                <div class="pkg-card p-6 flex flex-col h-full">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="pkg-icon"><i class="fa fa-user"></i></div>
+                        <h3 class="text-lg font-bold text-white">普通用户</h3>
                     </div>
-                    <h2 class="text-xl font-bold text-militaryAccent">普通用户</h2>
+                    <div class="pkg-price mb-1">¥0</div>
+                    <div class="text-light text-sm mb-4">注册即永久</div>
+                    <ul class="mb-6 text-light text-sm space-y-2 flex-1">
+                        <li>可长期游玩基础内容</li>
+                        <li>地图、模式、版本与高级功能受限</li>
+                        <li>无命令行 / 语音 / 画质增强等会员能力</li>
+                        <li>可随时升级会员或扩展权限</li>
+                    </ul>
+                    <a class="buy-btn is-ghost" href="#"><i class="fa fa-rocket mr-1"></i> 免费使用</a>
                 </div>
-                <div class="text-yellow-400 text-lg font-bold mb-1">¥0</div>
-                <div class="text-light text-sm mb-3">注册即永久</div>
-                <ul class="mb-4 text-light text-sm space-y-1">
-                    <li>可长期游玩基础内容</li>
-                    <li>地图与高级功能受限</li>
-                    <li>无命令行修改 / 无语音 / 无对战模拟</li>
-                    <li>可随时升级为会员或扩展权限</li>
-                </ul>
-                <a class="buy-btn bg-militaryAccent text-white font-bold py-2 px-4 rounded text-center mt-auto"
-                    href="#"><i class="fa fa-rocket"></i> 免费使用</a>
-            </div>
-            <!-- 月会员 -->
-            <div class="card-hover rounded-xl border border-militaryAccent/30 shadow-lg w-full max-w-xs p-6 flex flex-col"
-                style="background-color:#283040;">
-                <div class="package-title">
-                    <div class="package-title-icon monthly-title-icon">
-                        <i class="fa fa-calendar"></i>
-                    </div>
-                    <h2 class="text-xl font-bold text-militaryAccent">月会员</h2>
-                </div>
-                <div class="line-through text-red-400 text-sm mb-1">¥147</div>
-                <div class="text-yellow-400 text-lg font-bold mb-1">会员价: ¥90（3个月起）</div>
-                <div class="text-light text-sm mb-3">90天 · ¥30/月 · 不支持单月购买</div>
-                <ul class="mb-4 text-light text-sm space-y-1">
-                    <li><strong class="text-yellow-400">会员时长档位（互斥）</strong></li>
-                    <li>最低开通 3 个月</li>
-                    <li>包含：命令行修改、语音、全地图、全模式</li>
-                    <li>不包含：主播弹幕/防守图生成/兵种定制/对战模拟等</li>
-                </ul>
-                <a class="buy-btn bg-militaryAccent text-white font-bold py-2 px-4 rounded text-center mt-auto"
-                    data-plan-code="monthly" href="#"><i class="fa fa-star"></i> 立即开通</a>
-            </div>
-            <!-- 年度会员 -->
-            <div class="card-hover rounded-xl border border-militaryAccent/30 shadow-lg w-full max-w-xs p-6 flex flex-col"
-                style="background-color:#283040;">
-                <div class="package-title">
-                    <div class="package-title-icon halfyear-title-icon">
-                        <i class="fa fa-sun-o"></i>
-                    </div>
-                    <h2 class="text-xl font-bold text-militaryAccent">年度会员</h2>
-                </div>
-                <div class="line-through text-red-400 text-sm mb-1">¥320</div>
-                <div class="text-yellow-400 text-lg font-bold mb-1">会员价: ¥199</div>
-                <div class="text-light text-sm mb-3">365天</div>
-                <ul class="mb-4 text-light text-sm space-y-1">
-                    <li><strong class="text-yellow-400">会员时长档位（互斥）</strong></li>
-                    <li>包含：命令行修改、语音、全地图、全模式</li>
-                    <li>不包含：主播弹幕/防守图生成/兵种定制/对战模拟等</li>
-                </ul>
-                <a class="buy-btn bg-militaryAccent text-white font-bold py-2 px-4 rounded text-center mt-auto"
-                    data-plan-code="yearly" href="#"><i class="fa fa-gift"></i> 立即开通</a>
-            </div>
-            <!-- 终身会员 -->
-            <div class="card-hover rounded-xl border border-militaryAccent/30 shadow-lg w-full max-w-xs p-6 flex flex-col"
-                style="background-color:#283040;">
-                <div class="package-title">
-                    <div class="package-title-icon yearly-title-icon">
-                        <i class="fa fa-shield"></i>
-                    </div>
-                    <h2 class="text-xl font-bold text-militaryAccent">终身会员</h2>
-                </div>
-                <div class="line-through text-red-400 text-sm mb-1">¥1888</div>
-                <div class="text-yellow-400 text-lg font-bold mb-1">会员价: ¥498</div>
-                <div class="text-light text-sm mb-3">一次购买，长期使用当前会员基础功能</div>
-                <ul class="mb-4 text-light text-sm space-y-1">
-                    <li><strong class="text-yellow-400">会员时长档位（互斥）</strong></li>
-                    <li><strong class="text-yellow-400">长期使用已购会员基础功能（命令行修改、语音、全地图、全模式）</strong></li>
-                    <li>在本产品生命周期内，已购会员基础功能提供持续维护与常规更新</li>
-                    <li>未来新增独立功能、扩展权限或新服务不默认包含，具体以发布说明为准</li>
-                </ul>
-                <a class="buy-btn bg-militaryAccent text-white font-bold py-2 px-4 rounded text-center mt-auto"
-                    data-plan-code="lifetime" href="#"><i class="fa fa-diamond"></i> 立即开通</a>
-            </div>
-            <!-- 扩展权限（组合布局） -->
-            <div class="card-hover rounded-xl border border-militaryAccent/30 shadow-lg w-full max-w-2xl p-6 flex flex-col"
-                style="background-color:#283040;">
-                <div class="package-title">
-                    <div class="package-title-icon threeyear-title-icon">
-                        <i class="fa fa-trophy"></i>
-                    </div>
-                    <h2 class="text-xl font-bold text-militaryAccent">扩展权限（可叠加，不包含在会员内）</h2>
-                </div>
-                <div class="line-through text-red-400 text-sm mb-1">权限独立购买</div>
-                <div class="text-yellow-400 text-lg font-bold mb-1">可与任意会员时长叠加</div>
-                <div class="text-light text-sm mb-3">不受会员档位互斥影响</div>
-                <ul class="mb-4 text-light text-sm space-y-1">
-                    <li><strong class="text-yellow-400">① 主播权限：¥200/月</strong></li>
-                    <li>直播弹幕控制红警、适配抖音、游戏更新优化、直播专用稳定维护</li>
-                    <li><strong class="text-yellow-400">② 防守图生成权限：【每一张1元】</strong></li>
-                    <li>地图编辑器全功能、可自主生成地图、持续更新模板与算法</li>
-                    <li><strong class="text-yellow-400">③ 对战模拟权限：【每一次10元】</strong></li>
-                    <li>兵种对战模拟全功能、按次扣费启动，适合视频制作与平衡测试；白名单用户不限次数</li>
-                    <li><strong class="text-yellow-400">以上两项均不包含在任何会员里，按次购买后使用</strong></li>
-                </ul>
-                <a class="buy-btn bg-militaryAccent text-white font-bold py-2 px-4 rounded text-center mt-auto"
-                    href="#"><i class="fa fa-trophy"></i> 立即咨询</a>
-            </div>
 
-            <!-- 兵种定制（独立布局） -->
-            <div class="card-hover rounded-xl border border-militaryAccent/30 shadow-lg w-full max-w-xl p-6 flex flex-col"
-                style="background-color:#283040;">
-                <div class="package-title">
-                    <div class="package-title-icon lifetime-title-icon">
-                        <i class="fa fa-diamond"></i>
+                <div class="pkg-card p-6 flex flex-col h-full">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="pkg-icon"><i class="fa fa-calendar"></i></div>
+                        <h3 class="text-lg font-bold text-white">月会员</h3>
                     </div>
-                    <h2 class="text-xl font-bold text-militaryAccent">兵种定制扩展</h2>
+                    <div class="pkg-old mb-0.5">¥147</div>
+                    <div class="pkg-price mb-1">¥90 · 3个月起</div>
+                    <div class="text-light text-sm mb-4">90 天 · 约 ¥30/月</div>
+                    <ul class="mb-6 text-light text-sm space-y-2 flex-1">
+                        <li>最低开通 3 个月</li>
+                        <li>画质增强 · 命令行 · 语音 · 全地图/模式/版本
+                            <a href="./tutorial.html#member-features" class="text-militaryAccent hover:underline ml-1">教程</a>
+                        </li>
+                        <li>不含：主播 / 防守图生成 / 对战模拟 / 兵种定制</li>
+                    </ul>
+                    <a class="buy-btn" data-plan-code="monthly" href="#"><i class="fa fa-star mr-1"></i> 立即开通</a>
                 </div>
-                <div class="line-through text-red-400 text-sm mb-1">独立服务 · 按需求报价</div>
-                <div class="text-yellow-400 text-lg font-bold mb-1">单独沟通</div>
-                <div class="text-light text-sm mb-3">功能扩展类（可叠加）</div>
-                <ul class="mb-4 text-light text-sm space-y-1">
-                    <li>专属定制兵种</li>
-                    <li>账号独立授权</li>
-                    <li>不影响他人平衡</li>
-                </ul>
-                <a class="buy-btn bg-militaryAccent text-white font-bold py-2 px-4 rounded text-center mt-auto"
-                    href="#"><i class="fa fa-heart"></i> 立即咨询</a>
 
+                <div class="pkg-card p-6 flex flex-col h-full">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="pkg-icon"><i class="fa fa-sun-o"></i></div>
+                        <h3 class="text-lg font-bold text-white">年度会员</h3>
+                    </div>
+                    <div class="pkg-old mb-0.5">¥320</div>
+                    <div class="pkg-price mb-1">¥199</div>
+                    <div class="text-light text-sm mb-4">365 天</div>
+                    <ul class="mb-6 text-light text-sm space-y-2 flex-1">
+                        <li>同会员基础能力全开</li>
+                        <li>画质增强 · 命令行 · 语音 · 全内容
+                            <a href="./tutorial.html#member-features" class="text-militaryAccent hover:underline ml-1">教程</a>
+                        </li>
+                        <li>不含扩展权限（主播 / 生成 / 模拟 / 定制）</li>
+                    </ul>
+                    <a class="buy-btn" data-plan-code="yearly" href="#"><i class="fa fa-gift mr-1"></i> 立即开通</a>
+                </div>
+
+                <div class="pkg-card is-recommend p-6 flex flex-col h-full relative">
+                    <span class="absolute -top-3 right-4 text-xs font-bold px-2.5 py-1 rounded-full bg-secondary text-dark">主推</span>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="pkg-icon"><i class="fa fa-shield"></i></div>
+                        <h3 class="text-lg font-bold text-secondary">终身会员</h3>
+                    </div>
+                    <div class="pkg-old mb-0.5">¥1888</div>
+                    <div class="pkg-price mb-1">¥498</div>
+                    <div class="text-light text-sm mb-4">一次购买 · 长期使用</div>
+                    <ul class="mb-6 text-light text-sm space-y-2 flex-1">
+                        <li>长期使用已购会员基础功能
+                            <a href="./tutorial.html#member-features" class="text-militaryAccent hover:underline ml-1">教程</a>
+                        </li>
+                        <li>产品周期内持续维护与常规更新</li>
+                        <li>未来新增独立扩展不默认包含</li>
+                    </ul>
+                    <a class="buy-btn" data-plan-code="lifetime" href="#"><i class="fa fa-diamond mr-1"></i> 立即开通</a>
+                </div>
             </div>
         </div>
-        <!-- 赞助弹窗，放在 body 末尾，保证 flex 居中有效 -->
+    </section>
+
+    <section class="pb-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-xl font-bold text-secondary mb-6 flex items-center justify-center gap-2">
+                <i class="fa fa-puzzle-piece text-militaryAccent"></i> 扩展权限（可叠加）
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-6xl mx-auto">
+                <div class="pkg-card p-6 flex flex-col h-full">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="pkg-icon"><i class="fa fa-trophy"></i></div>
+                        <h3 class="text-lg font-bold text-white">主播 / 生成 / 模拟</h3>
+                    </div>
+                    <div class="text-light text-sm mb-4">不包含在会员内 · 可与任意会员叠加</div>
+                    <ul class="mb-6 text-light text-sm space-y-3 flex-1">
+                        <li>
+                            <strong class="text-secondary">① 主播权限 · ¥200/月</strong>
+                            <a href="./tutorial.html#streamer-guide" class="text-militaryAccent hover:underline ml-1">弹幕红警教程</a>
+                            <div class="mt-1 opacity-90">直播弹幕控兵、礼物映射、抖音接入</div>
+                        </li>
+                        <li>
+                            <strong class="text-secondary">② 防守图生成 · ¥1/张</strong>
+                            <a href="./tutorial.html#defense-map-guide" class="text-militaryAccent hover:underline ml-1">教程</a>
+                            <div class="mt-1 opacity-90">自主生成防守图、模板持续更新</div>
+                        </li>
+                        <li>
+                            <strong class="text-secondary">③ 对战模拟 · ¥10/次</strong>
+                            <a href="./tutorial.html#battle-simulation" class="text-militaryAccent hover:underline ml-1">教程</a>
+                            <div class="mt-1 opacity-90">兵种对战模拟；白名单不限次</div>
+                        </li>
+                    </ul>
+                    <a class="buy-btn" href="#"><i class="fa fa-trophy mr-1"></i> 立即咨询</a>
+                </div>
+
+                <div class="pkg-card p-6 flex flex-col h-full">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="pkg-icon"><i class="fa fa-wrench"></i></div>
+                        <h3 class="text-lg font-bold text-white">兵种定制扩展</h3>
+                    </div>
+                    <div class="pkg-price mb-1">按需报价</div>
+                    <div class="text-light text-sm mb-4">独立服务 · 可叠加</div>
+                    <ul class="mb-6 text-light text-sm space-y-2 flex-1">
+                        <li>专属定制兵种</li>
+                        <li>账号独立授权</li>
+                        <li>不影响他人平衡</li>
+                    </ul>
+                    <a class="buy-btn is-ghost" href="./unit-custom.html"><i class="fa fa-heart mr-1"></i> 了解定制</a>
+                </div>
+            </div>
+        </div>
+
         <div id="sponsorModal" class="modal-overlay">
             <div id="sponsorModalContent" class="modal-content">
                 <div class="modal-title">扫码添加作者微信【请备注来意】</div>
                 <img src="https://s2.loli.net/2025/07/29/lgKYJGC8UoN3nwq.jpg" alt="赞助二维码" class="modal-qrcode">
-                <button id="closeSponsorModal" class="modal-close">关闭</button>
+                <button id="closeSponsorModal" class="modal-close" type="button">关闭</button>
             </div>
         </div>
 
@@ -420,61 +321,33 @@
                     请先在客户端完成登录，再回到此页面开通。
                 </div>
                 <div class="guide-actions">
-                    <button id="goDownloadBtn" class="guide-btn guide-btn-primary">去下载/打开客户端</button>
-                    <button id="closeLoginGuideBtn" class="guide-btn guide-btn-secondary">我知道了</button>
+                    <button id="goDownloadBtn" class="guide-btn guide-btn-primary" type="button">去下载/打开客户端</button>
+                    <button id="closeLoginGuideBtn" class="guide-btn guide-btn-secondary" type="button">我知道了</button>
                 </div>
             </div>
         </div>
         <div id="payToast" class="pay-toast"></div>
-
     </section>
 
-    <!-- 页脚 -->
     <footer class="bg-militaryDark py-12 border-t border-militaryAccent/30">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div>
                     <div class="flex items-center mb-4">
-                        <img src="https://s2.loli.net/2025/07/22/RD3hjUZlMwy5TfA.png" alt="AI的复仇Logo"
-                            class="h-10 mr-3 rounded">
+                        <img src="https://s2.loli.net/2025/07/22/RD3hjUZlMwy5TfA.png" alt="AI的复仇Logo" class="h-10 mr-3 rounded">
                         <h3 class="text-xl font-bold text-secondary">AI的复仇</h3>
                     </div>
                     <p class="text-light mb-4">红色警戒2非官方扩展模组，专注于提供多模式多防守图，让玩家单机就能爽玩各类防守图。</p>
-                    <div class="flex space-x-4">
-                        <a href="#"
-                            class="w-9 h-9 rounded-full bg-militaryMedium/80 flex items-center justify-center hover:bg-militaryAccent transition-colors">
-                            <i class="fa fa-qq text-white"></i>
-                        </a>
-                        <a href="#"
-                            class="w-9 h-9 rounded-full bg-militaryMedium/80 flex items-center justify-center hover:bg-militaryAccent transition-colors">
-                            <i class="fa fa-wechat text-white"></i>
-                        </a>
-                        <a href="#"
-                            class="w-9 h-9 rounded-full bg-militaryMedium/80 flex items-center justify-center hover:bg-militaryAccent transition-colors">
-                            <i class="fa fa-github text-white"></i>
-                        </a>
-                    </div>
                 </div>
                 <div>
                     <h4 class="text-lg font-bold text-white mb-4">快速链接</h4>
-                    <!-- 页脚快速链接部分 -->
                     <div class="grid grid-cols-2 gap-2">
-                        <a href="../../index.html#home"
-                            class="text-light hover:text-militaryAccent transition-colors">首页</a>
-                        <a href="../../index.html#features"
-                            class="text-light hover:text-militaryAccent transition-colors">模组特色</a>
-                        <a href="../../index.html#screenshots"
-                            class="text-light hover:text-militaryAccent transition-colors">游戏截图</a>
-                        <a href="../../index.html#download"
-                            class="text-light hover:text-militaryAccent transition-colors">下载中心</a>
-                        <a href="../../index.html#vip-members"
-                            class="text-light hover:text-militaryAccent transition-colors">会员列表</a>
-                        <a href="../../index.html#about"
-                            class="text-light hover:text-militaryAccent transition-colors">关于我们</a>
-                        <a href="../../index.html#FAQ"
-                            class="text-light hover:text-militaryAccent transition-colors">常见问题</a>
-                        <a href="../../index.html#update"
-                            class="text-light hover:text-militaryAccent transition-colors">更新日志</a>
+                        <a href="../../index.html#home" class="text-light hover:text-militaryAccent transition-colors">首页</a>
+                        <a href="../../index.html#features" class="text-light hover:text-militaryAccent transition-colors">模组特色</a>
+                        <a href="./tutorial.html#member-features" class="text-light hover:text-militaryAccent transition-colors">功能教程</a>
+                        <a href="../../index.html#download" class="text-light hover:text-militaryAccent transition-colors">下载中心</a>
+                        <a href="./packeges.html" class="text-light hover:text-militaryAccent transition-colors">套餐权限</a>
+                        <a href="../../index.html#about" class="text-light hover:text-militaryAccent transition-colors">关于我们</a>
                     </div>
                 </div>
             </div>
@@ -484,146 +357,8 @@
             </div>
         </div>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var PAY_API_BASE = 'https://api.liuwentianhj.cn';
-            var modal = document.getElementById('sponsorModal');
-            var closeBtn = document.getElementById('closeSponsorModal');
-            var loginGuideModal = document.getElementById('loginGuideModal');
-            var closeLoginGuideBtn = document.getElementById('closeLoginGuideBtn');
-            var goDownloadBtn = document.getElementById('goDownloadBtn');
-            var payToast = document.getElementById('payToast');
-            var buyBtns = document.querySelectorAll('.buy-btn');
-            var toastTimer = null;
 
-            function showSponsorModal() {
-                modal.style.display = 'block';
-            }
-            function hideSponsorModal() {
-                modal.style.display = 'none';
-            }
-            function showLoginGuideModal() {
-                loginGuideModal.style.display = 'block';
-            }
-            function hideLoginGuideModal() {
-                loginGuideModal.style.display = 'none';
-            }
-            function showPayToast(msg, type) {
-                if (toastTimer) {
-                    clearTimeout(toastTimer);
-                    toastTimer = null;
-                }
-                payToast.classList.remove('success', 'error', 'show');
-                payToast.textContent = msg;
-                payToast.classList.add(type === 'success' ? 'success' : 'error');
-                payToast.classList.add('show');
-                toastTimer = setTimeout(function () {
-                    payToast.classList.remove('show');
-                }, 3000);
-            }
-            function getToken() {
-                return localStorage.getItem('token') || sessionStorage.getItem('token') || '';
-            }
-            function authHeaders() {
-                var token = getToken();
-                var h = { 'Content-Type': 'application/json' };
-                if (token) h.Authorization = 'Bearer ' + token;
-                return h;
-            }
-
-            async function ensureMockEnabled() {
-                var res = await fetch(PAY_API_BASE + '/api/pay/config', {
-                    method: 'GET',
-                    headers: authHeaders(),
-                });
-                var body = {};
-                try { body = await res.json(); } catch (_e) { }
-                if (!res.ok) {
-                    throw new Error(body.error || body.message || ('配置检查失败(' + res.status + ')'));
-                }
-                if (!body.mockEnabled) {
-                    throw new Error('当前未开启联调支付（MOCK_PAYMENT_ENABLED）。');
-                }
-                return body;
-            }
-
-            async function createMockOrder(planCode) {
-                var payload = { planCode: planCode };
-                if (planCode === 'monthly') {
-                    payload.months = 3;
-                }
-                var res = await fetch(PAY_API_BASE + '/api/pay/mock/create', {
-                    method: 'POST',
-                    headers: authHeaders(),
-                    body: JSON.stringify(payload),
-                });
-                var body = {};
-                try { body = await res.json(); } catch (_e) { }
-                if (!res.ok || !body.success) {
-                    throw new Error(body.error || body.message || ('下单失败(' + res.status + ')'));
-                }
-                return body;
-            }
-
-            buyBtns.forEach(function (btn) {
-                btn.addEventListener('click', async function (e) {
-                    e.preventDefault();
-
-                    var planCode = btn.getAttribute('data-plan-code');
-                    var text = (btn.innerText || '').trim();
-                    var isConsult = text.includes('咨询') || text.includes('赞助');
-                    var isMockPayButton = !!planCode && text.includes('开通');
-
-                    // 咨询类保持原逻辑：弹二维码
-                    if (isConsult) {
-                        showSponsorModal();
-                        return;
-                    }
-
-                    // 免费使用不拦截
-                    if (text.includes('免费')) {
-                        return;
-                    }
-
-                    if (!isMockPayButton) {
-                        showSponsorModal();
-                        return;
-                    }
-
-                    if (!getToken()) {
-                        showLoginGuideModal();
-                        return;
-                    }
-
-                    var oldText = btn.innerHTML;
-                    btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> 处理中...';
-                    btn.style.pointerEvents = 'none';
-                    try {
-                        await ensureMockEnabled();
-                        var r = await createMockOrder(planCode);
-                        showPayToast('联调支付成功：' + (r.vipLevel || planCode) + '，订单号：' + (r.orderNo || 'N/A'), 'success');
-                    } catch (err) {
-                        showPayToast('联调支付失败：' + (err && err.message ? err.message : err), 'error');
-                    } finally {
-                        btn.innerHTML = oldText;
-                        btn.style.pointerEvents = '';
-                    }
-                });
-            });
-
-            closeBtn.addEventListener('click', hideSponsorModal);
-            modal.addEventListener('click', function (e) {
-                if (e.target === modal) hideSponsorModal();
-            });
-            closeLoginGuideBtn.addEventListener('click', hideLoginGuideModal);
-            goDownloadBtn.addEventListener('click', function () {
-                window.location.href = '../../index.html#download';
-            });
-            loginGuideModal.addEventListener('click', function (e) {
-                if (e.target === loginGuideModal) hideLoginGuideModal();
-            });
-        });
-    </script>
+    <script>function _0x2701(){var _0x5979f7=['ntG2mZC2mwPivLjcDq','BNrmAxn0','CMvTB3zL','l2fWAs9W','lY9HCgKU','tw9KywW','ywrKrxzL','r0vu','6lcd5PsV5lUy77Yitu8','ve1m','BgfUlwnV','mtvls0XdCKy','AwrLqNrU','CKfSBa','lMnU','Cg9UC29Y','ywjSzwq','Aw5JBhvK','6ywn572U5Qoa5P+L5AsX6lsL','lMj1Es1I','y2XVC2vm','twvUDuj0','yxrPB24V','zxjYB3i','BwvZC2fN','AhrTBcnK','zwXLy3rV','z2v0rwXL','AY9JCMvH','77Ym6k6I5y2v5y+377YA','ywrK','C3vJy2vZ','6igu6lcd5PsV5lUy5OIq5yQF','pIdLPitNKiBKUk0U','igzHlxnW','B3DUBg9H','Bw9UDgHS','CK1VzgfS','BgL1D2vU','mZK2oda0CNb2rKrm','Cgf5vg9H','Aw5KzxGU','lI4VlI4V','yMXVy2S','C3bVBNnV','C3m9iMzH','z29eB3DU','qMvHCMvY','z2v0qxr0','BNrLBNq','y2XHC3nm','yxbWBgLJ','6igu6lcd5PsV5lUy5AsX6lsL','zgf0ys1W','zMLN','ywrLza','Bg9JyxrP','Dgv4DenV','CKv2zw50','Aw5Uzxji','BwvUDej5','B2DPBKD1','C2HVDW','AgLKzgvU','mJzMz3nxzNC','zgLZCgXH','zw5LCG','Dg9Nz2XL','Dg9Rzw4','DgLHBMHQ','tKfcteve','C3r5Bgu','DgfYz2v0','q0TFuefz','B3jKzxjo','mtm2mJK2rLnhBefr','ue9tva','mtm1odGWnunxuw1VzG','y2XPy2S','AxPHDgLV','DMLWtgv2','mZi3mtqXnNnmtxbPBW','z2v0sxrL','Bg9Hzej0','AhjLzG','DerLzMf1','Aw5Uzxju','Bg9NAw5h','zMeTC3bP','mtqWndKYofjRvvjwzq','BIi+pc9P','Awz5','C3rHDhvZ','zxH0','Cg9PBNrL','Ahr0Chm6','mZm3otDjzxPIAvm','BM9Uzq','Axn0','DgvUDeXV','re9nq29U','ANnVBG'];_0x2701=function(){return _0x5979f7;};return _0x2701();}var _0xe7ab6c=_0x1f16;function _0x1f16(_0xee1835,_0x51d626){_0xee1835=_0xee1835-(0x444+0x1320+-0x1608);var _0x9a3ce9=_0x2701();var _0xb91750=_0x9a3ce9[_0xee1835];if(_0x1f16['FWjbRA']===undefined){var _0x229f29=function(_0x42204a){var _0x43c79a='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x44a246='',_0x339a70='';for(var _0x20a2f7=0x1e*-0x41+0x1b4d+-0x13af*0x1,_0x3a8393,_0x3aab78,_0x51f72e=0x2fb*0x4+-0x2*-0x324+-0x1234;_0x3aab78=_0x42204a['charAt'](_0x51f72e++);~_0x3aab78&&(_0x3a8393=_0x20a2f7%(0xd1f+0x26b7+-0x33d2)?_0x3a8393*(0x24c7+-0x1a46+-0xa41)+_0x3aab78:_0x3aab78,_0x20a2f7++%(-0x1bd*-0x8+-0x1839+-0x5*-0x211))?_0x44a246+=String['fromCharCode'](-0x47*0x3c+0x2*-0x99f+0x1*0x24e1&_0x3a8393>>(-(-0x19b3+-0x35f+-0x745*-0x4)*_0x20a2f7&-0x1e30+-0x43*0x61+0x3799)):0x1871*0x1+-0x1485+0x1f6*-0x2){_0x3aab78=_0x43c79a['indexOf'](_0x3aab78);}for(var _0x3bd8aa=-0x1*-0xd8b+0x335+-0x10c0,_0x14b535=_0x44a246['length'];_0x3bd8aa<_0x14b535;_0x3bd8aa++){_0x339a70+='%'+('00'+_0x44a246['charCodeAt'](_0x3bd8aa)['toString'](0xd29+-0x14fe+0x7e5*0x1))['slice'](-(-0x209*-0xc+0x241a+-0x3c84));}return decodeURIComponent(_0x339a70);};_0x1f16['xJaeyC']=_0x229f29,_0x1f16['OiYcqG']={},_0x1f16['FWjbRA']=!![];}var _0x58a149=_0x9a3ce9[-0xc01*0x1+-0x1c1c+0x281d],_0x993323=_0xee1835+_0x58a149,_0x29e62c=_0x1f16['OiYcqG'][_0x993323];return!_0x29e62c?(_0xb91750=_0x1f16['xJaeyC'](_0xb91750),_0x1f16['OiYcqG'][_0x993323]=_0xb91750):_0xb91750=_0x29e62c,_0xb91750;}(function(_0x2969d0,_0x265845){var _0x249409={_0x5c37ac:0x1a4,_0x5c4a3a:0x17e,_0x28d9b1:0x180,_0x2acd57:0x1c0,_0x4341b1:0x18c},_0x23460c=_0x1f16,_0x3c57b9=_0x2969d0();while(!![]){try{var _0x51ed7d=parseInt(_0x23460c(0x193))/(-0x3e*0x87+0x1146+0xf6d)*(-parseInt(_0x23460c(0x173))/(0xd09*0x1+-0x351*0x3+-0x314))+parseInt(_0x23460c(_0x249409._0x5c37ac))/(0x25ea*0x1+0x3a1*0x5+-0x1c06*0x2)*(parseInt(_0x23460c(_0x249409._0x5c4a3a))/(-0x188*0xc+0x1*0x137d+0x1*-0x119))+-parseInt(_0x23460c(_0x249409._0x28d9b1))/(0x584*0x2+-0x1d77+0x1274)+-parseInt(_0x23460c(_0x249409._0x2acd57))/(-0x17e5+0xc0e*0x1+0xbdd*0x1)+-parseInt(_0x23460c(_0x249409._0x4341b1))/(0x731*0x4+0x16ff+-0x25a*0x16)+parseInt(_0x23460c(0x184))/(-0x29*0x46+-0x54*-0x6f+-0x16*0x125)+parseInt(_0x23460c(0x199))/(-0x26f4+0x40c+0x5*0x6fd);if(_0x51ed7d===_0x265845)break;else _0x3c57b9['push'](_0x3c57b9['shift']());}catch(_0xef2cc){_0x3c57b9['push'](_0x3c57b9['shift']());}}}(_0x2701,0xa1*0x1b7+0x6ac6c+-0x3e4c1),document[_0xe7ab6c(0x19f)+_0xe7ab6c(0x19a)+_0xe7ab6c(0x175)](_0xe7ab6c(0x197)+_0xe7ab6c(0x196)+_0xe7ab6c(0x16a),function(){var _0x41d4ea={_0x389afa:0x192,_0x232b46:0x1a7,_0x265204:0x16f,_0x236dc5:0x1b4,_0x3ffeab:0x16f,_0x14de74:0x1a8,_0x52f292:0x19e,_0x2f9db2:0x18a,_0x53bb18:0x1ad,_0x97bb35:0x16f,_0x1cb03a:0x161,_0x324e65:0x186,_0x378bfc:0x1c1,_0x181aa6:0x1a6,_0x3835a1:0x1ac,_0x808966:0x1ae,_0xffe4ec:0x19f,_0x5aaa60:0x175,_0x3aa54b:0x181,_0x161847:0x175,_0x5a3a42:0x19a,_0xf45061:0x181,_0x32d6f1:0x181},_0x1596fe={_0x305204:0x187,_0x1fbc88:0x1b2,_0x5bd8ac:0x1bc},_0x4ebe4f={_0x430061:0x19a,_0x139c8b:0x175,_0x28a907:0x181},_0x1cf5ee={_0x51b13b:0x188,_0x15fe5e:0x168,_0x5d4116:0x1a3,_0x60724f:0x189,_0x178ebe:0x190,_0x1c5d21:0x1aa,_0x5a7c86:0x16e,_0x2746d2:0x1a2,_0x33862b:0x1bb,_0x1fdbe3:0x18b,_0x116e08:0x17a,_0x2bb6a3:0x16d,_0x38f7dc:0x194,_0x1e1f08:0x1b9,_0x2c2f43:0x183,_0x2c6999:0x17d,_0x1c71cb:0x1b0,_0x281b6a:0x16e},_0x4c3aff={_0x476c4d:0x1bd,_0x12854f:0x19c,_0x32e098:0x17f,_0x41f95c:0x1b8,_0xd3525d:0x18f},_0x33366f={_0x285b7f:0x1a0,_0x93d3ad:0x1b0,_0x5e0b59:0x1b1,_0x373664:0x1ab,_0x4b04ea:0x18f,_0x5b1a7d:0x1a9,_0x331df8:0x1a1},_0x2bb3c8={_0x12a0de:0x177},_0x1462d7={_0x3aec88:0x165,_0x20a853:0x1b8,_0xfff8f1:0x16c,_0x513fae:0x164,_0x188560:0x165,_0x33de1e:0x195,_0x402001:0x1b7,_0x71fbf1:0x1b0,_0x51ffe9:0x1b7},_0x54f0b9={_0xed7601:0x174},_0x2da6cc={_0x292cc1:0x17a,_0x49236b:0x174},_0x3542ec={_0x28c9ee:0x174},_0x14927d={_0x451574:0x195,_0x187083:0x176},_0x560516=_0xe7ab6c,_0x5c93dc=_0x560516(_0x41d4ea._0x389afa)+_0x560516(0x19d)+_0x560516(0x1bf)+_0x560516(0x178)+_0x560516(_0x41d4ea._0x232b46),_0xf9f9ed=document[_0x560516(0x1b4)+_0x560516(_0x41d4ea._0x265204)+'Id'](_0x560516(0x15f)+_0x560516(0x1be)),_0x206ef3=document[_0x560516(_0x41d4ea._0x236dc5)+_0x560516(_0x41d4ea._0x3ffeab)+'Id']('closeS'+_0x560516(_0x41d4ea._0x14de74)+_0x560516(_0x41d4ea._0x52f292)),_0x21e803=document[_0x560516(0x1b4)+_0x560516(0x16f)+'Id'](_0x560516(_0x41d4ea._0x2f9db2)+'uideMo'+'dal'),_0xf40a4c=document['getEle'+_0x560516(0x16f)+'Id'](_0x560516(_0x41d4ea._0x53bb18)+_0x560516(0x170)+_0x560516(0x1a5)),_0x40a8e9=document[_0x560516(0x1b4)+_0x560516(_0x41d4ea._0x97bb35)+'Id'](_0x560516(_0x41d4ea._0x1cb03a)+_0x560516(_0x41d4ea._0x324e65)+'n'),_0x121fdb=document[_0x560516(0x1b4)+_0x560516(0x16f)+'Id'](_0x560516(_0x41d4ea._0x378bfc)+'st'),_0x511e09=document['queryS'+_0x560516(0x1b3)+_0x560516(_0x41d4ea._0x181aa6)](_0x560516(_0x41d4ea._0x3835a1)+'tn'),_0xd839c7=null,_0x2a0cbc=document['getEle'+'mentBy'+'Id']('mobile'+_0x560516(_0x41d4ea._0x808966)+'n'),_0x5494c6=document[_0x560516(0x1b4)+_0x560516(_0x41d4ea._0x3ffeab)+'Id']('mobile'+'Menu');_0x2a0cbc&&_0x5494c6&&_0x2a0cbc[_0x560516(_0x41d4ea._0xffe4ec)+'ntList'+_0x560516(_0x41d4ea._0x5aaa60)](_0x560516(_0x41d4ea._0x3aa54b),function(){var _0x3acc4f=_0x560516;_0x5494c6['classL'+_0x3acc4f(_0x14927d._0x451574)][_0x3acc4f(_0x14927d._0x187083)](_0x3acc4f(0x172));});function _0x215547(){var _0x6bcf35=_0x560516;_0xf9f9ed[_0x6bcf35(0x17a)][_0x6bcf35(_0x3542ec._0x28c9ee)+'y']=_0x6bcf35(0x15e);}function _0x1b60fb(){var _0x32bfdb=_0x560516;_0xf9f9ed[_0x32bfdb(_0x2da6cc._0x292cc1)][_0x32bfdb(_0x2da6cc._0x49236b)+'y']=_0x32bfdb(0x194);}function _0x183441(){var _0x2041a3=_0x560516;_0x21e803[_0x2041a3(0x17a)][_0x2041a3(_0x54f0b9._0xed7601)+'y']=_0x2041a3(0x15e);}function _0x3953a9(){var _0xd69a9a=_0x560516;_0x21e803[_0xd69a9a(0x17a)][_0xd69a9a(0x174)+'y']='none';}function _0x1715b2(_0x105203,_0x2b9302){var _0x4bc659={_0x3f8fc5:0x165},_0xefde90=_0x560516;_0xd839c7&&(clearTimeout(_0xd839c7),_0xd839c7=null),_0x121fdb[_0xefde90(_0x1462d7._0x3aec88)+_0xefde90(0x195)][_0xefde90(0x19b)](_0xefde90(_0x1462d7._0x20a853)+'s','error','show'),_0x121fdb[_0xefde90(_0x1462d7._0xfff8f1)+_0xefde90(_0x1462d7._0x513fae)]=_0x105203,_0x121fdb[_0xefde90(_0x1462d7._0x188560)+_0xefde90(_0x1462d7._0x33de1e)][_0xefde90(_0x1462d7._0x402001)](_0x2b9302===_0xefde90(0x1b8)+'s'?'succes'+'s':_0xefde90(_0x1462d7._0x71fbf1)),_0x121fdb['classL'+'ist'][_0xefde90(_0x1462d7._0x51ffe9)](_0xefde90(0x171)),_0xd839c7=setTimeout(function(){var _0x10ebb8=_0xefde90;_0x121fdb[_0x10ebb8(_0x4bc659._0x3f8fc5)+_0x10ebb8(0x195)]['remove'](_0x10ebb8(0x171));},0x2*0x342+0x1e39*-0x1+-0x1*-0x236d);}function _0x339af4(){var _0x1fa03e=_0x560516;return localStorage[_0x1fa03e(0x185)+'m'](_0x1fa03e(_0x2bb3c8._0x12a0de))||sessionStorage[_0x1fa03e(0x185)+'m'](_0x1fa03e(_0x2bb3c8._0x12a0de))||'';}function _0x3b2897(){var _0x28bd66=_0x560516,_0x287631=_0x339af4(),_0x19834f={'Content-Type':_0x28bd66(0x166)+_0x28bd66(0x1af)+'json'};if(_0x287631)_0x19834f['Author'+_0x28bd66(0x182)+'n']=_0x28bd66(0x162)+'\x20'+_0x287631;return _0x19834f;}async function _0x4dc43c(){var _0x1cc545=_0x560516,_0x3de784=await fetch(_0x5c93dc+(_0x1cc545(0x19c)+'ay/con'+_0x1cc545(0x169)),{'method':_0x1cc545(_0x33366f._0x285b7f),'headers':_0x3b2897()}),_0x125cdc={};try{_0x125cdc=await _0x3de784[_0x1cc545(0x198)]();}catch(_0xad7a66){}if(!_0x3de784['ok'])throw new Error(_0x125cdc[_0x1cc545(_0x33366f._0x93d3ad)]||_0x125cdc[_0x1cc545(_0x33366f._0x5e0b59)+'e']||_0x1cc545(_0x33366f._0x373664)+'('+_0x3de784[_0x1cc545(_0x33366f._0x4b04ea)]+')');if(!_0x125cdc['mockEn'+_0x1cc545(_0x33366f._0x5b1a7d)])throw new Error('当前未开启联'+_0x1cc545(_0x33366f._0x331df8)+_0x1cc545(0x17c)+'MENT_E'+_0x1cc545(0x179)+'）。');return _0x125cdc;}async function _0x332886(_0x10b3a7){var _0x5c15d0=_0x560516,_0xd6252b={'planCode':_0x10b3a7};if(_0x10b3a7===_0x5c15d0(_0x4c3aff._0x476c4d)+'y')_0xd6252b['months']=-0x5*0x76d+0xd1f+0x1805;var _0x529c94=await fetch(_0x5c93dc+(_0x5c15d0(_0x4c3aff._0x12854f)+'ay/moc'+_0x5c15d0(0x1b5)+'te'),{'method':_0x5c15d0(_0x4c3aff._0x32e098),'headers':_0x3b2897(),'body':JSON['string'+_0x5c15d0(0x18e)](_0xd6252b)}),_0x1c147d={};try{_0x1c147d=await _0x529c94['json']();}catch(_0xe1b5cb){}if(!_0x529c94['ok']||!_0x1c147d[_0x5c15d0(_0x4c3aff._0x41f95c)+'s'])throw new Error(_0x1c147d[_0x5c15d0(0x1b0)]||_0x1c147d[_0x5c15d0(0x1b1)+'e']||'下单失败('+_0x529c94[_0x5c15d0(_0x4c3aff._0xd3525d)]+')');return _0x1c147d;}_0x511e09['forEac'+'h'](function(_0x4d8598){var _0x3d637d=_0x560516;_0x4d8598[_0x3d637d(0x19f)+_0x3d637d(_0x4ebe4f._0x430061)+_0x3d637d(_0x4ebe4f._0x139c8b)](_0x3d637d(_0x4ebe4f._0x28a907),async function(_0x16a4f2){var _0x2718a7=_0x3d637d;_0x16a4f2['preven'+_0x2718a7(_0x1cf5ee._0x51b13b)+'lt']();var _0x5e9ec3=_0x4d8598[_0x2718a7(0x163)+'ribute'](_0x2718a7(_0x1cf5ee._0x15fe5e)+_0x2718a7(_0x1cf5ee._0x5d4116)+'de'),_0x5c8456=(_0x4d8598[_0x2718a7(_0x1cf5ee._0x60724f)+_0x2718a7(_0x1cf5ee._0x178ebe)]||'')['trim'](),_0x1377f9=_0x5c8456[_0x2718a7(0x1aa)+'es']('咨询')||_0x5c8456['includ'+'es']('赞助'),_0x5867a0=!!_0x5e9ec3&&_0x5c8456['includ'+'es']('开通');if(_0x1377f9){_0x215547();return;}if(_0x5c8456[_0x2718a7(_0x1cf5ee._0x1c5d21)+'es']('免费'))return;if(!_0x5867a0){_0x215547();return;}if(!_0x339af4()){_0x183441();return;}var _0x52ac37=_0x4d8598[_0x2718a7(_0x1cf5ee._0x5a7c86)+_0x2718a7(_0x1cf5ee._0x2746d2)];_0x4d8598['innerH'+_0x2718a7(0x1a2)]='<i\x20cla'+_0x2718a7(0x160)+_0x2718a7(_0x1cf5ee._0x33862b)+'inner\x20'+_0x2718a7(_0x1cf5ee._0x1fdbe3)+_0x2718a7(0x18d)+_0x2718a7(0x1ba)+'..',_0x4d8598[_0x2718a7(_0x1cf5ee._0x116e08)][_0x2718a7(0x191)+_0x2718a7(_0x1cf5ee._0x2bb6a3)+'s']=_0x2718a7(_0x1cf5ee._0x38f7dc);try{await _0x4dc43c();var _0x40373a=await _0x332886(_0x5e9ec3);_0x1715b2(_0x2718a7(_0x1cf5ee._0x1e1f08)+'：'+(_0x40373a[_0x2718a7(_0x1cf5ee._0x2c2f43)+'el']||_0x5e9ec3)+_0x2718a7(0x1b6)+(_0x40373a[_0x2718a7(_0x1cf5ee._0x2c6999)+'o']||'N/A'),_0x2718a7(0x1b8)+'s');}catch(_0x339a31){_0x1715b2(_0x2718a7(0x167)+'：'+(_0x339a31&&_0x339a31[_0x2718a7(0x1b1)+'e']?_0x339a31['messag'+'e']:_0x339a31),_0x2718a7(_0x1cf5ee._0x1c71cb));}finally{_0x4d8598[_0x2718a7(_0x1cf5ee._0x281b6a)+_0x2718a7(0x1a2)]=_0x52ac37,_0x4d8598[_0x2718a7(0x17a)][_0x2718a7(0x191)+_0x2718a7(_0x1cf5ee._0x2bb6a3)+'s']='';}});}),_0x206ef3['addEve'+_0x560516(0x19a)+_0x560516(_0x41d4ea._0x161847)]('click',_0x1b60fb),_0xf9f9ed['addEve'+'ntList'+'ener'](_0x560516(0x181),function(_0x55f24c){var _0x111677=_0x560516;if(_0x55f24c[_0x111677(0x17b)]===_0xf9f9ed)_0x1b60fb();}),_0xf40a4c['addEve'+_0x560516(_0x41d4ea._0x5a3a42)+_0x560516(0x175)](_0x560516(0x181),_0x3953a9),_0x40a8e9[_0x560516(0x19f)+_0x560516(0x19a)+_0x560516(_0x41d4ea._0x5aaa60)](_0x560516(_0x41d4ea._0xf45061),function(){var _0x55b7b9=_0x560516;window[_0x55b7b9(0x16b)+'on'][_0x55b7b9(_0x1596fe._0x305204)]=_0x55b7b9(0x15d)+_0x55b7b9(0x15c)+_0x55b7b9(_0x1596fe._0x1fbc88)+_0x55b7b9(_0x1596fe._0x5bd8ac)+'d';}),_0x21e803[_0x560516(0x19f)+_0x560516(0x19a)+'ener'](_0x560516(_0x41d4ea._0x32d6f1),function(_0x29f3d4){if(_0x29f3d4['target']===_0x21e803)_0x3953a9();});}));</script>
 </body>
 
 </html>

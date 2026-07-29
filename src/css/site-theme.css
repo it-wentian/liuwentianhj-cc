@@ -1,0 +1,120 @@
+/**
+ * AI的复仇 — 站点统一主题
+ * 以首页 index.html 的军事暗色 + 警戒红/警示黄/科技青 为准
+ */
+:root {
+  --air-primary: #CC0000;
+  --air-secondary: #FFCC00;
+  --air-dark: #0A0A0A;
+  --air-panel: #1a1a1a;
+  --air-panel-2: #212429;
+  --air-medium: #1E293B;
+  --air-light: #AAAAAA;
+  --air-accent: #0EA5E9;
+  --air-border: rgba(14, 165, 233, 0.3);
+  --air-cyan-glow: rgba(14, 165, 233, 0.55);
+  --air-text: #ffffff;
+  --air-muted: #8aa0b4;
+}
+
+.air-bg-grid {
+  background-image:
+    linear-gradient(rgba(14, 165, 233, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.air-card {
+  position: relative;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid var(--air-border);
+  border-radius: 14px;
+  box-shadow:
+    0 0 18px rgba(14, 165, 233, 0.25),
+    0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.air-card::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 1px solid rgba(14, 165, 233, 0.22);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+  pointer-events: none;
+}
+
+.air-kbd {
+  display: inline-block;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.85em;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(204, 0, 0, 0.18);
+  border: 1px solid rgba(255, 204, 0, 0.35);
+  color: var(--air-secondary);
+  white-space: nowrap;
+}
+
+.air-cmd {
+  display: inline-block;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.88em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.35);
+  color: #7dd3fc;
+}
+
+.air-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid var(--air-border);
+  color: #7dd3fc;
+  background: rgba(14, 165, 233, 0.1);
+}
+
+.air-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.air-table th,
+.air-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  vertical-align: top;
+}
+
+.air-table th {
+  color: var(--air-secondary);
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.air-table td {
+  color: #e5e7eb;
+}
+
+.air-table tr:hover td {
+  background: rgba(14, 165, 233, 0.06);
+}
+
+.air-scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
