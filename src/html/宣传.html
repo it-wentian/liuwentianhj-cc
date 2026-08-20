@@ -142,14 +142,38 @@ section{padding:88px 6%;position:relative}
 /* —— 横向滚屏功能带 —— */
 .scroll-strip{margin-top:8px}
 .scroll-strip .hint{text-align:center;color:#6a8aa8;font-size:13px;margin-bottom:16px}
+.feature-carousel{position:relative;max-width:1360px;margin:0 auto}
+.feature-carousel-viewport{overflow:hidden;padding:8px 0 24px}
 .h-scroll{
   display:flex;gap:20px;overflow-x:auto;padding:8px 4px 24px;
   scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
 }
+.feature-carousel .h-scroll{
+  padding:8px 4px 4px;
+  scrollbar-width:none;
+}
+.feature-carousel .h-scroll::-webkit-scrollbar{display:none}
+.carousel-btn{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+  width:44px;height:44px;border-radius:999px;border:1px solid var(--border);
+  background:rgba(8,18,32,.92);color:#dff6ff;font-size:22px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+}
+.carousel-btn:hover{background:rgba(12,30,52,.98)}
+.carousel-btn.prev{left:-10px}
+.carousel-btn.next{right:-10px}
+.carousel-dots{display:flex;justify-content:center;gap:10px;margin-top:12px}
+.carousel-dot{
+  width:10px;height:10px;border-radius:999px;border:none;cursor:pointer;
+  background:rgba(120,221,255,.24);
+}
+.carousel-dot.active{background:#32cfff;box-shadow:0 0 12px rgba(50,207,255,.55)}
 .h-scroll::-webkit-scrollbar{height:8px}
 .h-scroll::-webkit-scrollbar-thumb{background:rgba(0,200,255,.35);border-radius:4px}
 .feature-card{
-  flex:0 0 min(420px,85vw);scroll-snap-align:start;
+  flex:0 0 calc((100% - 40px) / 3);scroll-snap-align:start;
+  min-width:0;
   background:var(--panel);border:1px solid var(--border);border-radius:18px;overflow:hidden;
   transition:.3s;
 }
@@ -166,10 +190,24 @@ section{padding:88px 6%;position:relative}
 .feature-card .body{padding:20px 22px 24px}
 .feature-card h3{color:#78ddff;font-size:20px;margin-bottom:8px}
 .feature-card p{color:#9cb8cf;font-size:14px}
+.feature-card .meta{margin-top:10px;color:#6fd9ff;font-size:12px;font-weight:700;letter-spacing:.04em}
+.feature-card ul{
+  margin-top:12px;padding-left:18px;color:#c9d9e8;font-size:13px;
+}
+.feature-card li{margin:6px 0}
 .feature-card .pill{
   display:inline-block;margin-top:12px;padding:4px 10px;border-radius:999px;
   font-size:11px;border:1px solid rgba(255,213,74,.45);color:var(--gold);
 }
+.showcase-intro{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1200px;margin:0 auto 26px;
+}
+.showcase-note{
+  padding:18px 16px;border-radius:16px;background:rgba(255,255,255,.03);
+  border:1px solid var(--border);
+}
+.showcase-note strong{display:block;color:var(--gold);font-size:15px;margin-bottom:6px}
+.showcase-note p{color:#9cb8cf;font-size:13px}
 
 /* —— 大图对比滑块区（Before/After） —— */
 .ba-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1200px;margin:0 auto}
@@ -196,6 +234,26 @@ section{padding:88px 6%;position:relative}
 .price .money small{font-size:18px;font-weight:400;color:#8aa4bc}
 .price ul{text-align:left;margin:16px 0 0;padding-left:18px;color:#9cb8cf;font-size:14px}
 .price ul li{margin:6px 0}
+.diff-wrap{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:22px;max-width:1200px;margin:0 auto;
+}
+.diff-panel,.quotes-panel{
+  background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:24px;
+}
+.diff-panel h3,.quotes-panel h3{color:#8be9ff;font-size:22px;margin-bottom:16px}
+.diff-list{display:grid;gap:14px}
+.diff-item{
+  display:grid;grid-template-columns:180px 1fr;gap:16px;align-items:start;
+  padding:16px;border-radius:14px;background:rgba(255,255,255,.03);
+}
+.diff-item strong{color:#fff;font-size:14px}
+.diff-item p{color:#9cb8cf;font-size:13px}
+.quotes-grid{display:grid;gap:14px}
+.quote{
+  padding:16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);
+}
+.quote p{color:#e6f3ff;font-size:15px}
+.quote span{display:block;margin-top:8px;color:#8aa4bc;font-size:12px}
 .ext-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:1000px;margin:32px auto 0}
 .ext-item{padding:18px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--border);text-align:center}
 .ext-item .p{color:var(--gold);font-size:22px;font-weight:800;margin:8px 0}
@@ -215,11 +273,16 @@ footer{text-align:center;padding:56px 6% 80px;color:#7a96b0;font-size:14px}
 footer .foot-cta{margin-top:20px}
 
 @media(max-width:960px){
-  .hero-inner,.compare-block,.ba-pair,.price-wrap,.hero-stats{grid-template-columns:1fr}
+  .hero-inner,.compare-block,.ba-pair,.price-wrap,.hero-stats,.showcase-intro,.diff-wrap,.diff-item{grid-template-columns:1fr}
   .compare-block .compare-side{min-height:240px}
   .price.recommend{transform:none}
   .topbar .logo{font-size:14px}
   .topbar-links a:not(.cta){display:none}
+  .carousel-btn{display:none}
+  .feature-carousel .feature-card{flex-basis:calc((100% - 20px) / 2)}
+}
+@media(max-width:640px){
+  .feature-carousel .feature-card{flex-basis:100%}
 }
 </style>
 </head>
@@ -244,13 +307,12 @@ footer .foot-cta{margin-top:20px}
   <div class="hero-inner">
     <div class="hero-copy">
       <span class="badge">v1.8.9 · 六大版本 · 持续更新</span>
-      <h1>不是 MOD<br>是红警平台</h1>
-      <p class="tagline">联机 · 动态模式 · 语音战争 · 直播互动</p>
-      <p class="desc">一个客户端统管六个版本、数十种玩法。每局可不同——冠绝征召随机武器、动态难度压境、100+ 语音口令改战局。</p>
+      <h1>免费能玩<br>会员更好玩</h1>
+      <p class="tagline">联机开黑 · 动态模式 · 语音战争 · 直播互动</p>
+      <p class="desc">免费版先体验，会员再把语音、命令行、全地图、全模式和 ReShade 画面增强一起打开。</p>
       <div class="hero-btns">
         <a class="btn btn-primary" href="#pricing">看会员方案</a>
-        <a class="btn btn-ghost" href="./tutorial.html#voice-control">语音 / 命令行教程</a>
-        <a class="btn btn-ghost" href="#showcase">滚屏看亮点</a>
+        <a class="btn btn-ghost" href="#member-diff">免费 / 会员差异</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -274,7 +336,7 @@ footer .foot-cta{margin-top:20px}
 <section id="compare">
   <div class="sec-head">
     <h2>一眼看懂差在哪</h2>
-
+    <p>不是单一版本的整合包，而是一套持续扩展的红警玩法平台。</p>
   </div>
   <div class="compare-block">
     <div class="compare-side bad">
@@ -302,15 +364,84 @@ footer .foot-cta{margin-top:20px}
   </div>
 </section>
 
-<!-- ③ 横向滚屏：八大卖点（每卡一张图） -->
+<!-- ③ 免费 / 会员 / 主播扩展差异 -->
+<section id="member-diff">
+  <div class="sec-head">
+    <h2>免费上手，会员完整</h2>
+    <p>免费版足够上手，会员版才真正把这套平台的乐趣拉满。语音、命令行、全地图、全模式、画面增强，核心内容都在这里。</p>
+  </div>
+  <div class="diff-wrap">
+    <div class="diff-panel">
+      <h3>版本差异</h3>
+      <div class="diff-list">
+        <div class="diff-item">
+          <strong>免费版</strong>
+          <p>可以正常体验基础版本与核心内容，适合先下载上手，先感受这套平台的玩法风格。</p>
+        </div>
+        <div class="diff-item">
+          <strong>会员版</strong>
+          <p>解锁语音指令、命令行、全地图、全模式与 ReShade 视觉增强，完整体验平台最有代表性的玩法内容。</p>
+        </div>
+        <div class="diff-item">
+          <strong>终身会员</strong>
+          <p>语音和命令不限次数，适合常玩、常联机、常刷图的玩家，一次开通，长期省心。</p>
+        </div>
+        <div class="diff-item">
+          <strong>主播扩展</strong>
+          <p>面向直播用户单独扩展，支持礼物控兵、击杀播报、赞助名牌等互动玩法，节目效果更强。</p>
+        </div>
+      </div>
+    </div>
+    <div class="quotes-panel">
+      <h3>为什么很多人会开会员</h3>
+      <div class="quotes-grid">
+        <div class="quote">
+          <p>免费版可以玩，但会员版不是简单多几个功能，而是把语音、地图、模式和整套体验一起补全。</p>
+          <span>完整度更高</span>
+        </div>
+        <div class="quote">
+          <p>ReShade、动态雨雪、流水和氛围效果不会改平衡，但会让老游戏的观感直接提升一个层级。</p>
+          <span>画面更有质感</span>
+        </div>
+        <div class="quote">
+          <p>它不是玩完就放着吃灰的整合包，而是一个会持续更新、持续扩玩法、长期值得留着的平台。</p>
+          <span>长期可玩性更强</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ 横向滚屏：八大卖点（每卡一张图） -->
 <section id="showcase">
   <div class="sec-head">
-    <h2>横向滚屏</h2>
-    <p>手机可左右滑 · PC 可滚轮横滑 — 每块配一张截图或 GIF</p>
+    <h2>这些功能，才是它真正上头的地方</h2>
+    <p>从动态玩法到语音战争，从联机开黑到直播互动，再到画面增强和地图生态，这些内容一起构成了完整的平台体验。</p>
+  </div>
+  <div class="showcase-intro">
+    <div class="showcase-note">
+      <strong>先玩得进</strong>
+      <p>免费版适合先上手，先体验基础版本和核心地图。</p>
+    </div>
+    <div class="showcase-note">
+      <strong>再玩得爽</strong>
+      <p>会员版解锁语音、命令行、全地图、全模式和 ReShade 画面增强。</p>
+    </div>
+    <div class="showcase-note">
+      <strong>直播更有节目</strong>
+      <p>礼物控兵、击杀播报、赞助名牌等互动玩法，适合做长期直播内容。</p>
+    </div>
+    <div class="showcase-note">
+      <strong>长期更耐玩</strong>
+      <p>持续更新、持续扩玩法、持续加地图，不容易玩几天就腻。</p>
+    </div>
   </div>
   <div class="scroll-strip">
-    <p class="hint">← 左右滑动查看更多 →</p>
-    <div class="h-scroll">
+    <p class="hint">点击左右切换，手机支持手势滑动</p>
+    <div class="feature-carousel" data-carousel>
+      <button class="carousel-btn prev" type="button" aria-label="查看上一张">‹</button>
+      <div class="feature-carousel-viewport">
+        <div class="h-scroll">
 
       <article class="feature-card">
         <div class="thumb">
@@ -318,7 +449,13 @@ footer .foot-cta{margin-top:20px}
         </div>
         <div class="body">
           <h3>冠绝征召 · 仿 Dota 武器争夺</h3>
-          <p>全屏征召黑天启/东风41 → 随机武器重组全场单位，每局不同。</p>
+          <p>不是死背套路图，而是每局都能抽到不同武器和单位组合。上一把强在海战，下一把可能变成超武乱斗。</p>
+          <div class="meta">每一局都重新开荒</div>
+          <ul>
+            <li>全屏征召黑天启、东风 41 等高规格单位</li>
+            <li>随机武器重组全场单位，打法不会固化</li>
+            <li>适合反复刷，不容易玩两天就腻</li>
+          </ul>
           <span class="pill">动态模式</span>
         </div>
       </article>
@@ -329,7 +466,13 @@ footer .foot-cta{margin-top:20px}
         </div>
         <div class="body">
           <h3>语音战争 · 九阳神功</h3>
-          <p>说一句话：全屏演出 + 全场回满 + 护甲火力翻倍。100+ 口令。</p>
+          <p>这不是“语音开个菜单”，而是直接用一句口令改变战局。喊出来就触发演出、回血、强化、清场、天气、BGM。</p>
+          <div class="meta">最容易让人当场觉得“值”的功能</div>
+          <ul>
+            <li>100+ 语音口令，娱乐和实战两条线都有</li>
+            <li>九阳神功、呼风唤雨、特殊事件都能一口气拉满氛围</li>
+            <li>终身会员语音/命令可不限次数使用</li>
+          </ul>
           <span class="pill">会员 · 语音</span>
         </div>
       </article>
@@ -340,7 +483,13 @@ footer .foot-cta{margin-top:20px}
         </div>
         <div class="body">
           <h3>联机对战 · 联机区</h3>
-          <p>LAN / 战网隧道 · 武器争夺/愈战愈强/流浪要塞均可联机开黑。</p>
+          <p>不是单机作者自嗨内容，是真能拉朋友开黑的完整联机生态。你喜欢的模式，不只自己能玩，还能组局、对抗、合作。</p>
+          <div class="meta">从单机包升级成平台感</div>
+          <ul>
+            <li>LAN / 战网隧道 / 联机大厅都能接</li>
+            <li>武器争夺、愈战愈强、流浪要塞都能联机</li>
+            <li>更适合长期留人，而不是打一把就关</li>
+          </ul>
           <span class="pill">联机生态</span>
         </div>
       </article>
@@ -351,7 +500,13 @@ footer .foot-cta{margin-top:20px}
         </div>
         <div class="body">
           <h3>流浪要塞 · 动态压境</h3>
-          <p>定时空袭 + 超武打击，难度随时间爬升。三模式：要塞/逃生/求生。</p>
+          <p>AI 不是站着给你打，会按时间和节奏往上压。你越拖，天上地下越热闹，局势会从“能守”慢慢变成“快顶不住”。</p>
+          <div class="meta">比固定波次更刺激</div>
+          <ul>
+            <li>定时空袭、超武打击、节奏压迫同时推进</li>
+            <li>难度随时间爬升，不是固定脚本背板</li>
+            <li>要塞 / 逃生 / 求生三种强压体验</li>
+          </ul>
           <span class="pill">动态难度</span>
         </div>
       </article>
@@ -362,7 +517,13 @@ footer .foot-cta{margin-top:20px}
         </div>
         <div class="body">
           <h3>直播 · 弹幕礼物控兵</h3>
-          <p>抖音接入 · 礼物刷天启 · 斐波那契波次 · Dota 连杀播报 · 赞助名牌。</p>
+          <p>如果你是主播，这一块几乎等于把红警变成直播互动游戏。观众送礼、刷弹幕，不只是看热闹，而是真的能把兵刷进战场。</p>
+          <div class="meta">节目效果最强的一层扩展</div>
+          <ul>
+            <li>抖音接入，礼物映射单位、强化、事件</li>
+            <li>Dota 连杀播报、赞助名牌、波次节奏都能做</li>
+            <li>更适合做长期栏目，而不是一次性整活</li>
+          </ul>
           <span class="pill">主播扩展 ¥200/月</span>
         </div>
       </article>
@@ -373,7 +534,13 @@ footer .foot-cta{margin-top:20px}
         </div>
         <div class="body">
           <h3>视觉增强 · ReShade</h3>
-          <p>说「雨来/风来」改天气 · 河流光影 · 昼夜 · 100+ 战场 BGM。</p>
+          <p>游戏性不变，但观感完全不是一个年代。雨雪、流水、阴影、亮度层次一开，老游戏会突然有“重制版”的感觉。</p>
+          <div class="meta">老玩家最容易被惊到的地方</div>
+          <ul>
+            <li>语音切天气，说“雨来”“风来”直接变场景</li>
+            <li>动态雨雪、流水反光、昼夜氛围更足</li>
+            <li>搭配 100+ 战场 BGM，沉浸感直接上来</li>
+          </ul>
           <span class="pill">会员</span>
         </div>
       </article>
@@ -384,7 +551,13 @@ footer .foot-cta{margin-top:20px}
         </div>
         <div class="body">
           <h3>防守图生成 · 600+ 模板</h3>
-          <p>9 种玩法模式 · 绝望/地狱/坦克争霸/天朝守卫… ¥1/张生成。</p>
+          <p>不是只给你几张作者挑好的图，而是能继续往下造。想刷什么主题、什么难度、什么模式，都有继续扩的空间。</p>
+          <div class="meta">内容量不是几十张图能比的</div>
+          <ul>
+            <li>600+ 模板，9 种玩法模式持续组合</li>
+            <li>绝望、地狱、坦克争霸、天朝守卫等都能衍生</li>
+            <li>适合长期刷图、组队轮换、做系列内容</li>
+          </ul>
           <span class="pill">扩展</span>
         </div>
       </article>
@@ -395,20 +568,64 @@ footer .foot-cta{margin-top:20px}
         </div>
         <div class="body">
           <h3>兵种对战模拟</h3>
-          <p>自选双方阵容 · 自动结算 · 适合 UP 主做战力视频。¥10/次。</p>
+          <p>不止是“玩地图”，还可以直接做兵种测试和节目内容。谁克谁、几队打几队、火力值不值，一跑就能看结果。</p>
+          <div class="meta">适合内容作者和研究党</div>
+          <ul>
+            <li>自选双方阵容，自动结算，效率很高</li>
+            <li>适合做战力排行、兵种克制、娱乐实验</li>
+            <li>配合 HUD 展示，视频观感会更专业</li>
+          </ul>
           <span class="pill">扩展</span>
         </div>
       </article>
 
+      <article class="feature-card">
+        <div class="thumb">
+          <div class="ph">command-console.jpg<br><code>命令行控制 / 特殊事件</code></div>
+        </div>
+        <div class="body">
+          <h3>命令行控制 · 高自由度爽玩</h3>
+          <p>如果语音更像“喊出来就爽”，那命令行就是精细控制。很多特殊效果、作弊事件、整活指令都能自己组合着玩。</p>
+          <div class="meta">老玩家会越玩越上头的一层</div>
+          <ul>
+            <li>适合调试局面、整活演出、快速造节目效果</li>
+            <li>和语音玩法互补，一个爽快，一个精准</li>
+            <li>季度/年度有次数，终身不限次</li>
+          </ul>
+          <span class="pill">会员 · 命令行</span>
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <div class="thumb">
+          <div class="ph">full-maps.jpg<br><code>全地图 / 全模式 / 多版本</code></div>
+        </div>
+        <div class="body">
+          <h3>全地图全模式 · 一个客户端全装下</h3>
+          <p>真正值钱的不只是某一个玩法，而是一个客户端里把六个版本、多个模式、海量地图和后续更新都串起来了。</p>
+          <div class="meta">买的是完整平台，不是单一功能</div>
+          <ul>
+            <li>六大版本统一入口，不用来回折腾多个包</li>
+            <li>地图、模式、玩法生态集中维护</li>
+            <li>更省心，也更适合长期常驻电脑</li>
+          </ul>
+          <span class="pill">平台核心价值</span>
+        </div>
+      </article>
+
+        </div>
+      </div>
+      <button class="carousel-btn next" type="button" aria-label="查看下一张">›</button>
+      <div class="carousel-dots" aria-label="轮播分页"></div>
     </div>
   </div>
 </section>
 
-<!-- ④ Before/After 四组（ReShade / 语音 / 直播 / 征召） -->
+<!-- ⑤ Before/After 四组（ReShade / 语音 / 直播 / 征召） -->
 <section id="before-after">
   <div class="sec-head">
-    <h2>四组 Before / After</h2>
-    <p>每组两张同场景：左「前」右「后」— 转化页最强武器</p>
+    <h2>效果对比</h2>
+    <p>同场景对比展示，画面增强、语音玩法、直播互动与动态模式的差异一目了然。</p>
   </div>
   <div class="ba-grid">
     <div class="ba-item">
@@ -442,7 +659,7 @@ footer .foot-cta{margin-top:20px}
   </div>
 </section>
 
-<!-- ⑤ 版本生态（小图标即可） -->
+<!-- ⑥ 版本生态（小图标即可） -->
 <section>
   <div class="sec-head">
     <h2>六大版本 · 一个客户端</h2>
@@ -475,11 +692,11 @@ footer .foot-cta{margin-top:20px}
   </div>
 </section>
 
-<!-- ⑥ 定价（与客户端一致） -->
+<!-- ⑦ 定价（与客户端一致） -->
 <section id="pricing">
   <div class="sec-head">
-    <h2>会员 </h2>
-    <p>命令行 + 语音 + 全地图 + 全模式 + ReShade · 终身不限次语音/命令</p>
+    <h2>会员</h2>
+    <p>免费版适合先体验，会员版适合长期玩。语音、命令行、全地图、全模式与画面增强，都会在会员版中完整开放。</p>
   </div>
   <div class="price-wrap">
     <div class="price">
@@ -517,46 +734,21 @@ footer .foot-cta{margin-top:20px}
   </div>
 </section>
 
-<!-- ⑦ 你需要准备的图片清单 -->
 <section>
   <div class="sec-head">
-    <h2>📷 素材清单（给你 / 设计师）</h2>
-    <p>按优先级 P0 必做 · P1 强烈建议 · P2 锦上添花</p>
+    <h2>这些玩家更适合会员版</h2>
+    <p>如果你偏爱高频联机、语音玩法、长期刷图或直播互动，会员版会更适合长期使用。</p>
   </div>
-  <div class="asset-list">
-    <h4>P0 </h4>
-    <table>
-      <tr><th>文件名</th><th>尺寸</th><th>拍什么</th></tr>
-      <tr><td><code>hero-main.jpg</code></td><td>1920×1080</td><td>主视觉：单位最多的一帧，ReShade 开，可加轻微暗角</td></tr>
-      <tr><td><code>compare-mod-bad.jpg</code></td><td>960×540</td><td>对比左：原版/灰/内容少</td></tr>
-      <tr><td><code>compare-platform-good.jpg</code></td><td>960×540</td><td>对比右：同场景但超单位+光效（可同地图重开 ReShade）</td></tr>
-      <tr><td><code>draft-hero.jpg</code></td><td>1280×720</td><td>冠绝征召全屏 UI（draft_3 选人界面）</td></tr>
-      <tr><td><code>voice-jiuyang.jpg</code></td><td>1280×720</td><td>九阳神功视频播放瞬间截图</td></tr>
-      <tr><td><code>ba-reshade-off/on.jpg</code></td><td>800×600×2</td><td>同位置关/开 ReShade（最直观）</td></tr>
-    </table>
-    <h4 style="margin-top:20px">P1 · 滚屏八卡</h4>
-    <table>
-      <tr><td><code>online-lobby.jpg</code></td><td>1280×720</td><td>联机大厅 / 联机区列表</td></tr>
-      <tr><td><code>vagrant-pressure.jpg</code></td><td>1280×720</td><td>流浪要塞空袭+超武炸屏</td></tr>
-      <tr><td><code>douyin-overlay.jpg</code></td><td>1280×720</td><td>礼物层+Kill Feed 同屏</td></tr>
-      <tr><td><code>reshade-weather.jpg</code></td><td>1280×720</td><td>雨雪天气效果</td></tr>
-      <tr><td><code>defense-generator.jpg</code></td><td>1280×720</td><td>防守图生成器窗口</td></tr>
-      <tr><td><code>battle-sim.jpg</code></td><td>1280×720</td><td>兵种模拟+对战兵力条</td></tr>
-    </table>
-    <h4 style="margin-top:20px">P2 · 视频/GIF（比静图更杀）</h4>
-    <table>
-      <tr><td><code>hero-loop.mp4</code></td><td>15–30s</td><td>混剪：征召→语音→礼物天启→ReShade（无配音可后加）</td></tr>
-      <tr><td><code>jiuyang-clip.mp4</code></td><td>5–8s</td><td>九阳神功完整演出录屏</td></tr>
-      <tr><td><code>clearenemy-clip.mp4</code></td><td>5–8s</td><td>「给姑奶奶洗」清敌视频</td></tr>
-      <tr><td><code>draft-pick.gif</code></td><td>800×450</td><td>征召选人 3–5 秒循环</td></tr>
-    </table>
-    <h4 style="margin-top:20px">P2 · 六版本 Logo</h4>
-    <p><code>logo-ar.png</code> 等 6 张 · 256×256 透明 PNG · 可用游戏内阵营图标或自制</p>
+  <div class="ext-grid">
+    <div class="ext-item"><div>老红警玩家</div><div class="p">更耐玩</div><div style="font-size:13px;color:#8aa4bc">玩腻固定套路图的人，会明显感受到玩法厚度差异</div></div>
+    <div class="ext-item"><div>语音整活党</div><div class="p">更爽</div><div style="font-size:13px;color:#8aa4bc">九阳神功、天气语音、特殊指令，这一块最容易上头</div></div>
+    <div class="ext-item"><div>常联机开黑</div><div class="p">更值</div><div style="font-size:13px;color:#8aa4bc">模式和地图更全，长期和朋友轮换内容不容易腻</div></div>
+    <div class="ext-item"><div>主播 / UP 主</div><div class="p">更有节目</div><div style="font-size:13px;color:#8aa4bc">直播控兵、播报、互动机制更容易做成固定栏目</div></div>
   </div>
 </section>
 
 <footer>
-  <p>宣传页为「转化用滚屏版」· 官网下载/会员/登录请走 liuwentianhj.cc</p>
+  <p>AI的复仇游戏平台 · 下载、登录、会员与教程均可在官网查看</p>
   <p style="margin-top:10px">
     <a href="./tutorial.html#voice-control" style="color:var(--cyan);margin:0 10px">语音控制教程</a>
     <a href="./tutorial.html#cheat-commands" style="color:var(--cyan);margin:0 10px">命令行作弊教程</a>
@@ -564,6 +756,6 @@ footer .foot-cta{margin-top:20px}
   <p class="foot-cta"><a class="btn btn-primary" href="#pricing">终身会员 ¥498 · 主推</a></p>
 </footer>
 
-<script>var _0x141c3b=_0x4f0d;function _0x4f0d(_0x590500,_0x509ee8){_0x590500=_0x590500-(0xfe9*-0x1+-0xa60+-0x2b*-0xa1);var _0x5cddba=_0x4196();var _0x5db02e=_0x5cddba[_0x590500];if(_0x4f0d['OgmoOv']===undefined){var _0x25638d=function(_0xb926e5){var _0x323ad7='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x462d72='',_0x439b66='';for(var _0x2d0c98=0x9c2+-0x165b+0xc99,_0x3bd4ea,_0x31e2a1,_0x4e5daa=0xfba+0xedb*0x1+-0x1e95;_0x31e2a1=_0xb926e5['charAt'](_0x4e5daa++);~_0x31e2a1&&(_0x3bd4ea=_0x2d0c98%(-0x1995+0xe72+-0xb27*-0x1)?_0x3bd4ea*(0x5*0x104+0x3b8+-0x223*0x4)+_0x31e2a1:_0x31e2a1,_0x2d0c98++%(-0x3f5+0x2176+-0x1d7d*0x1))?_0x462d72+=String['fromCharCode'](0x1e7*-0x4+0x1200+0x1*-0x965&_0x3bd4ea>>(-(-0x17b*-0x12+-0x115+-0x198f)*_0x2d0c98&-0x20a0+0x2*0x973+-0x40*-0x37)):-0x547*-0x6+-0x1*-0x4e4+-0x248e){_0x31e2a1=_0x323ad7['indexOf'](_0x31e2a1);}for(var _0x2f44ad=0x6c6*0x5+-0x3c*0x1c+-0x1b4e,_0xe56e09=_0x462d72['length'];_0x2f44ad<_0xe56e09;_0x2f44ad++){_0x439b66+='%'+('00'+_0x462d72['charCodeAt'](_0x2f44ad)['toString'](0x1*-0x119b+-0x106f+0x221a))['slice'](-(-0x1003*-0x1+0x4b6*0x6+-0x2c45));}return decodeURIComponent(_0x439b66);};_0x4f0d['MQJZpk']=_0x25638d,_0x4f0d['xxvYck']={},_0x4f0d['OgmoOv']=!![];}var _0x172af7=_0x5cddba[0x89b*-0x4+-0x2*-0x16a+-0x3f3*-0x8],_0x4dc8c9=_0x590500+_0x172af7,_0x4cdfd1=_0x4f0d['xxvYck'][_0x4dc8c9];return!_0x4cdfd1?(_0x5db02e=_0x4f0d['MQJZpk'](_0x5db02e),_0x4f0d['xxvYck'][_0x4dc8c9]=_0x5db02e):_0x5db02e=_0x4cdfd1,_0x5db02e;}function _0x4196(){var _0x3e8c84=['mJa3odi4sMXmvw1K','zgvSDgfz','ndGWmdyWv1vSBM9W','DerLzMf1','mte0mg1rugDctq','zw5LCG','CKfSBa','zgvSDgfy','otu3nJaYmejfufv1ua','nZjuENPxDK8','ntvuBvzev2C','D2HLzwW','B2XS','zM9YrwfJ','BNrmAxn0','nZK0ndv4v2z3q2W','mtuZote2CMvnAKnh','ywrKrxzL','zwXLy3rV','mtr1tfrsB1a','C2nYB2XS','ywjZ','ChjLDMvU','lMGTC2nY','mtmZoda0AvDswvP1','CxvLCNLt','mtm4mJG3nefsEKTSBW','mJGWquvKEKTt'];_0x4196=function(){return _0x3e8c84;};return _0x4196();}(function(_0x525421,_0x3e6038){var _0x322ebb={_0x316a73:0xdb,_0xc7ebb5:0xc6,_0x50d0d6:0xd2,_0x4a3b68:0xc7,_0x5ab2fd:0xc8,_0xce021:0xc4,_0x3def2a:0xcc},_0x523fd1=_0x4f0d,_0x545bec=_0x525421();while(!![]){try{var _0xe5ebb9=-parseInt(_0x523fd1(0xd7))/(0x1*0x1052+-0x1*0x22a+-0xe27)*(-parseInt(_0x523fd1(_0x322ebb._0x316a73))/(0x2a2+0x1*-0x614+-0x4*-0xdd))+-parseInt(_0x523fd1(_0x322ebb._0xc7ebb5))/(-0x1364+-0x292*-0x9+-0xbf*0x5)+-parseInt(_0x523fd1(0xd8))/(0x49*-0x2e+0x154a+-0x828)*(-parseInt(_0x523fd1(_0x322ebb._0x50d0d6))/(0x2*0x1286+-0x4bc*-0x7+0x17*-0x30d))+parseInt(_0x523fd1(0xd1))/(-0x3*0x11f+0x1648+-0x2b3*0x7)*(parseInt(_0x523fd1(0xca))/(-0x15a+-0x124*-0x1e+-0x20d7))+parseInt(_0x523fd1(_0x322ebb._0x4a3b68))/(0x3*0x7b9+-0x2*-0xc45+-0x2fad)*(-parseInt(_0x523fd1(_0x322ebb._0x5ab2fd))/(-0x62f*0x5+0x107*0x2+0x1ce6))+-parseInt(_0x523fd1(0xd0))/(-0x3*0x4c1+0x1d1*-0xb+0x1124*0x2)+-parseInt(_0x523fd1(_0x322ebb._0xce021))/(0x120b+-0x14*0xb0+-0x440)*(-parseInt(_0x523fd1(_0x322ebb._0x3def2a))/(0x131*-0x16+-0x3d+0x8d5*0x3));if(_0xe5ebb9===_0x3e6038)break;else _0x545bec['push'](_0x545bec['shift']());}catch(_0x13c3c4){_0x545bec['push'](_0x545bec['shift']());}}}(_0x4196,0x1646c2+-0x110*0x10a2+0x6*0x11791),document[_0x141c3b(0xc5)+_0x141c3b(0xda)+_0x141c3b(0xce)](_0x141c3b(0xc3)+_0x141c3b(0xd4))[_0x141c3b(0xd5)+'h'](_0x356d07=>{var _0x940504={_0x133c07:0xcd,_0x5163d6:0xd3},_0x11fc26={_0xd96551:0xcf,_0x5b5746:0xc2,_0x570209:0xcb},_0x45bc1f=_0x141c3b;_0x356d07[_0x45bc1f(0xd9)+_0x45bc1f(0xd6)+_0x45bc1f(_0x940504._0x133c07)](_0x45bc1f(_0x940504._0x5163d6),_0x54ee59=>{var _0x11c13e=_0x45bc1f;Math[_0x11c13e(0xdd)](_0x54ee59[_0x11c13e(0xc9)])>Math['abs'](_0x54ee59[_0x11c13e(_0x11fc26._0xd96551)])&&(_0x54ee59[_0x11c13e(_0x11fc26._0x5b5746)+_0x11c13e(_0x11fc26._0x570209)+'lt'](),_0x356d07[_0x11c13e(0xdc)+'Left']+=_0x54ee59[_0x11c13e(0xc9)]);},{'passive':![]});}));</script>
+<script>function _0x960e(_0x3a18f3,_0x30c2e0){_0x3a18f3=_0x3a18f3-(-0x240*0xe+0xeb6*-0x1+-0x2*-0x1754);const _0x5e1423=_0x340e();let _0x876bf1=_0x5e1423[_0x3a18f3];if(_0x960e['yperDL']===undefined){var _0x515b5f=function(_0x1efa0a){const _0x406333='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x158b88='',_0x5a2f5e='';for(let _0xee0422=-0x25*-0x4f+-0x12a8+0x11*0x6d,_0x576400,_0x597378,_0x26786b=-0x1df0+-0xf55+0x2d45;_0x597378=_0x1efa0a['charAt'](_0x26786b++);~_0x597378&&(_0x576400=_0xee0422%(0x774+-0xbe8+0x478)?_0x576400*(0x189a*-0x1+-0xd9a+0x2674)+_0x597378:_0x597378,_0xee0422++%(0x1f*0x12f+0x26*-0x20+0xb*-0x2e7))?_0x158b88+=String['fromCharCode'](-0x7ef+-0x15*-0x1a6+-0x19b0&_0x576400>>(-(-0x3*0x392+-0xb*-0x349+-0x3*0x879)*_0xee0422&-0x2691*-0x1+-0xc9b+-0x19f0)):0x60*-0xa+0x1be8*-0x1+0x1fa8){_0x597378=_0x406333['indexOf'](_0x597378);}for(let _0x290e9f=0x4*-0x265+0x297+-0x1*-0x6fd,_0x217a9d=_0x158b88['length'];_0x290e9f<_0x217a9d;_0x290e9f++){_0x5a2f5e+='%'+('00'+_0x158b88['charCodeAt'](_0x290e9f)['toString'](-0x1dd0+0x215c+-0x1*0x37c))['slice'](-(-0x1b*0x151+-0x15a4+0x79*0x79));}return decodeURIComponent(_0x5a2f5e);};_0x960e['KcTlLj']=_0x515b5f,_0x960e['VtaMbs']={},_0x960e['yperDL']=!![];}const _0x2e55d1=_0x5e1423[-0x6af+0x1*-0x50c+0xbbb],_0x3e895d=_0x3a18f3+_0x2e55d1,_0x28e6c0=_0x960e['VtaMbs'][_0x3e895d];return!_0x28e6c0?(_0x876bf1=_0x960e['KcTlLj'](_0x876bf1),_0x960e['VtaMbs'][_0x3e895d]=_0x876bf1):_0x876bf1=_0x28e6c0,_0x876bf1;}const _0x204be5=_0x960e;(function(_0x588aca,_0x63750a){const _0x576a75={_0x4a9f6e:0x89,_0x1e5d13:0x99,_0x181926:0xb1,_0x25bf22:0x74,_0x455fda:0x82,_0x3aeda6:0xb4},_0x4d96ed=_0x960e,_0x4bbf8c=_0x588aca();while(!![]){try{const _0x967fbc=parseInt(_0x4d96ed(0x93))/(-0x1*0x101c+-0x9b9+0xceb*0x2)*(parseInt(_0x4d96ed(0x7e))/(0xc7c+-0x1463+0x5*0x195))+parseInt(_0x4d96ed(_0x576a75._0x4a9f6e))/(0x1*-0x1b69+-0x146d+0x2fd9)+-parseInt(_0x4d96ed(_0x576a75._0x1e5d13))/(-0xe5*-0x19+0xc*-0x202+0x1bf)+parseInt(_0x4d96ed(_0x576a75._0x181926))/(-0x1bf7*0x1+0x243*0x11+-0xa77)+parseInt(_0x4d96ed(_0x576a75._0x25bf22))/(0x1*0x2389+0x1*0xcce+-0x3051)+-parseInt(_0x4d96ed(0x9c))/(-0x137*-0x1d+0x6f*-0x30+-0xe64)+-parseInt(_0x4d96ed(_0x576a75._0x455fda))/(0x1a31+0x1*-0x14f7+-0x532)*(parseInt(_0x4d96ed(_0x576a75._0x3aeda6))/(0x19*0xb9+0x8cd*0x4+-0xd4f*0x4));if(_0x967fbc===_0x63750a)break;else _0x4bbf8c['push'](_0x4bbf8c['shift']());}catch(_0x5e1365){_0x4bbf8c['push'](_0x4bbf8c['shift']());}}}(_0x340e,-0x2*-0x234fb+0x3caed+-0x1bb*0xd9),document[_0x204be5(0x8d)+'electo'+_0x204be5(0x95)](_0x204be5(0x9f)+'oll')[_0x204be5(0x80)+'h'](_0x1efa0a=>{const _0x2cf0dd={_0x28eda3:0xa9,_0x525cfe:0x9e,_0x991002:0x92,_0x3099a4:0x96},_0x4cf409={_0x50e134:0x8b,_0x5901a7:0xa5,_0x189cda:0x78,_0x3949e2:0x88},_0x2cf72e=_0x204be5;if(_0x1efa0a[_0x2cf72e(_0x2cf0dd._0x28eda3)+'t'](_0x2cf72e(0xab)+_0x2cf72e(_0x2cf0dd._0x525cfe)+_0x2cf72e(0x75)))return;_0x1efa0a[_0x2cf72e(_0x2cf0dd._0x991002)+'ntList'+'ener'](_0x2cf72e(_0x2cf0dd._0x3099a4),_0x406333=>{const _0x5b08de=_0x2cf72e;Math[_0x5b08de(0x98)](_0x406333[_0x5b08de(0x88)])>Math[_0x5b08de(0x98)](_0x406333['deltaX'])&&(_0x406333[_0x5b08de(_0x4cf409._0x50e134)+_0x5b08de(_0x4cf409._0x5901a7)+'lt'](),_0x1efa0a[_0x5b08de(_0x4cf409._0x189cda)+_0x5b08de(0xb2)]+=_0x406333[_0x5b08de(_0x4cf409._0x3949e2)]);},{'passive':![]});}),document[_0x204be5(0x8d)+_0x204be5(0xa8)+'rAll'](_0x204be5(0xab)+'carous'+_0x204be5(0x75))[_0x204be5(0x80)+'h'](_0x158b88=>{const _0x57ff2f={_0x5858ad:0x8d,_0x33492a:0xa8,_0x255a3d:0x9a,_0x540042:0x7b,_0x1106a5:0x8d,_0x3cf244:0x95,_0x3001e3:0x8d,_0x304f61:0x8c,_0x4aedd2:0x86,_0x29aa77:0xa1,_0x72eb8b:0x92,_0xc4cabd:0x72,_0x1e5971:0xa3,_0x2b0009:0x92,_0x3c30ac:0xb5,_0x266379:0xa1,_0x305c36:0x72,_0x533a31:0x92,_0x2ec596:0xa1,_0x4b8e32:0x72,_0x311213:0xa6,_0x246b4a:0x72,_0x139129:0xa1,_0x3306a5:0x7f},_0x5c1c7d={_0x26628d:0x73},_0x4b37e5={_0x4ec328:0x81},_0x1a2bb1={_0x3d8716:0xa4,_0x3e8cac:0xa2},_0x5ce84d={_0x1333ad:0x87},_0x1c9a7d={_0x214689:0x80},_0x350efe={_0x1ac860:0x80},_0x58060b={_0x16a680:0x78,_0x4a6157:0xb2},_0x4c0d35={_0x4d5c28:0x81,_0x28efc0:0x78,_0x87ed35:0x79,_0x36a34f:0x80,_0x334668:0x97},_0x29837c=_0x204be5,_0x5a2f5e=_0x158b88[_0x29837c(_0x57ff2f._0x5858ad)+_0x29837c(_0x57ff2f._0x33492a)+'r'](_0x29837c(0x9f)+_0x29837c(_0x57ff2f._0x255a3d)),_0xee0422=Array[_0x29837c(_0x57ff2f._0x540042)](_0x5a2f5e[_0x29837c(_0x57ff2f._0x1106a5)+_0x29837c(0xa8)+_0x29837c(_0x57ff2f._0x3cf244)](_0x29837c(0x77)+'re-car'+'d')),_0x576400=_0x158b88[_0x29837c(_0x57ff2f._0x3001e3)+_0x29837c(_0x57ff2f._0x33492a)+'r'](_0x29837c(0xa0)),_0x597378=_0x158b88['queryS'+'electo'+'r'](_0x29837c(0x91)),_0x26786b=_0x158b88[_0x29837c(_0x57ff2f._0x1106a5)+_0x29837c(_0x57ff2f._0x33492a)+'r'](_0x29837c(_0x57ff2f._0x304f61)+_0x29837c(0x97)+'ts');let _0x290e9f=null,_0x217a9d=[],_0x8e4e4=[];if(!_0x5a2f5e||_0xee0422[_0x29837c(_0x57ff2f._0x4aedd2)]===0x142e+0x1f*-0x5b+-0x929)return;function _0x4d2966(){const _0x3c24c8={_0x4cb985:0x76,_0x3ae899:0x8f,_0x50d5d1:0x9e,_0x99384b:0x8e,_0x3797bf:0xb0,_0x2f1f65:0xac,_0x54ff00:0x90,_0x27ae6b:0xa3},_0x3919b8=_0x29837c,_0x35fcc0=Math[_0x3919b8(_0x4c0d35._0x4d5c28)](-0xf55+-0x1ae+-0xd*-0x14f,_0x5a2f5e[_0x3919b8(_0x4c0d35._0x28efc0)+_0x3919b8(0x79)]-_0x5a2f5e['client'+_0x3919b8(_0x4c0d35._0x87ed35)]),_0x5939a4=[];_0xee0422['forEac'+'h'](_0x5f5db7=>{const _0x470e5c=_0x3919b8,_0x545cee=Math['min'](_0x5f5db7[_0x470e5c(0xae)+_0x470e5c(0xb2)],_0x35fcc0);(_0x5939a4[_0x470e5c(0x86)]===-0x9a7+-0x26b7+0x305e||Math['abs'](_0x5939a4[_0x5939a4['length']-(0x18f7+0x2439+-0x1*0x3d2f)]-_0x545cee)>0xc2*0x2a+0x5*0x2bd+-0x2d83)&&_0x5939a4['push'](_0x545cee);}),_0x217a9d=_0x5939a4['length']?_0x5939a4:[-0x15*-0x1a6+-0x1f52+-0x34c],_0x26786b['innerH'+'TML']='',_0x217a9d[_0x3919b8(_0x4c0d35._0x36a34f)+'h']((_0x4442fe,_0x4a5463)=>{const _0x43c340=_0x3919b8,_0x56ac1b=document[_0x43c340(0x7d)+_0x43c340(0x7a)+'t'](_0x43c340(_0x3c24c8._0x4cb985));_0x56ac1b[_0x43c340(_0x3c24c8._0x3ae899)]=_0x43c340(0x76),_0x56ac1b['classN'+_0x43c340(0xaa)]=_0x43c340(_0x3c24c8._0x50d5d1)+'el-dot',_0x56ac1b[_0x43c340(_0x3c24c8._0x99384b)+_0x43c340(_0x3c24c8._0x3797bf)](_0x43c340(_0x3c24c8._0x2f1f65)+_0x43c340(_0x3c24c8._0x54ff00),_0x43c340(0x9b)+(_0x4a5463+(0x2423+-0xa*-0x399+-0xa*0x736))+'\x20页'),_0x56ac1b[_0x43c340(0x92)+'ntList'+'ener'](_0x43c340(_0x3c24c8._0x27ae6b),()=>{_0x5f0f97(_0x4a5463),_0x168d63();}),_0x26786b[_0x43c340(0x84)+'Child'](_0x56ac1b);}),_0x8e4e4=Array[_0x3919b8(0x7b)](_0x26786b[_0x3919b8(0x8d)+_0x3919b8(0xa8)+'rAll'](_0x3919b8(0x8c)+_0x3919b8(_0x4c0d35._0x334668)+'t'));}function _0x317841(){const _0x3e47eb=_0x29837c;let _0x9e53d9=-0x2691*-0x1+-0xc9b+-0x19f6,_0x1db0cd=Infinity;return _0x217a9d[_0x3e47eb(_0x350efe._0x1ac860)+'h']((_0x22c5b1,_0x574264)=>{const _0x26a0d2=_0x3e47eb,_0x4d8d67=Math[_0x26a0d2(0x98)](_0x5a2f5e[_0x26a0d2(_0x58060b._0x16a680)+_0x26a0d2(_0x58060b._0x4a6157)]-_0x22c5b1);_0x4d8d67<_0x1db0cd&&(_0x1db0cd=_0x4d8d67,_0x9e53d9=_0x574264);}),_0x9e53d9;}function _0xb15e89(){const _0x7f7d19=_0x29837c,_0x2f61fa=_0x317841();_0x8e4e4[_0x7f7d19(_0x1c9a7d._0x214689)+'h']((_0x9a192,_0x482b36)=>_0x9a192[_0x7f7d19(0x94)+_0x7f7d19(0xaf)][_0x7f7d19(0xa7)](_0x7f7d19(0xb3),_0x482b36===_0x2f61fa));}function _0x5f0f97(_0xddfaa3){const _0x5dd3fd=_0x29837c,_0x4c88d7=_0x217a9d[_0xddfaa3];if(typeof _0x4c88d7!==_0x5dd3fd(_0x5ce84d._0x1333ad))return;_0x5a2f5e['scroll'+'To']({'left':_0x4c88d7,'behavior':_0x5dd3fd(0x9d)});}function _0x194139(){const _0x1c5a71={_0x3c0aab:0x86},_0x94afb5=_0x29837c;_0x125986(),_0x290e9f=window[_0x94afb5(_0x1a2bb1._0x3d8716)+_0x94afb5(_0x1a2bb1._0x3e8cac)](()=>{const _0x3abed2=_0x94afb5,_0x173f7e=(_0x317841()+(0x60*-0xa+0x1be8*-0x1+0x1fa9))%_0x217a9d[_0x3abed2(_0x1c5a71._0x3c0aab)];_0x5f0f97(_0x173f7e);},0x4*-0x265+0x297+-0x3*-0x6e3);}function _0x125986(){_0x290e9f&&(window['clearI'+'nterva'+'l'](_0x290e9f),_0x290e9f=null);}function _0x168d63(){_0x125986(),_0x194139();}_0x576400?.[_0x29837c(0x92)+_0x29837c(_0x57ff2f._0x29aa77)+_0x29837c(0x72)](_0x29837c(0xa3),()=>{const _0x93ae89=_0x29837c,_0x4ec70d=Math[_0x93ae89(_0x4b37e5._0x4ec328)](-0x1dd0+0x215c+-0x1*0x38c,_0x317841()-(-0x1b*0x151+-0x15a4+0xf4*0x3c));_0x5f0f97(_0x4ec70d),_0x168d63();}),_0x597378?.[_0x29837c(_0x57ff2f._0x72eb8b)+_0x29837c(_0x57ff2f._0x29aa77)+_0x29837c(_0x57ff2f._0xc4cabd)](_0x29837c(_0x57ff2f._0x1e5971),()=>{const _0x37f564=_0x29837c,_0x5b55c4=Math[_0x37f564(_0x5c1c7d._0x26628d)](_0x217a9d['length']-(-0x6af+0x1*-0x50c+0xbbc),_0x317841()+(-0x887*-0x1+-0x1*-0xe1+-0x1*0x967));_0x5f0f97(_0x5b55c4),_0x168d63();}),_0x158b88[_0x29837c(_0x57ff2f._0x2b0009)+_0x29837c(0xa1)+_0x29837c(_0x57ff2f._0xc4cabd)]('mousee'+_0x29837c(0x8a),_0x125986),_0x158b88[_0x29837c(0x92)+_0x29837c(0xa1)+_0x29837c(0x72)](_0x29837c(_0x57ff2f._0x3c30ac)+_0x29837c(0xad),_0x194139),_0x158b88[_0x29837c(0x92)+_0x29837c(_0x57ff2f._0x266379)+_0x29837c(_0x57ff2f._0x305c36)](_0x29837c(0x7c)+'n',_0x125986),_0x158b88[_0x29837c(_0x57ff2f._0x533a31)+'ntList'+_0x29837c(0x72)](_0x29837c(0x83)+'ut',_0x194139),_0x5a2f5e['addEve'+_0x29837c(_0x57ff2f._0x2ec596)+_0x29837c(_0x57ff2f._0x4b8e32)](_0x29837c(_0x57ff2f._0x311213)+_0x29837c(0x85),_0x125986,{'passive':!![]}),_0x5a2f5e[_0x29837c(0x92)+'ntList'+_0x29837c(_0x57ff2f._0x246b4a)](_0x29837c(0xa6)+'rup',_0x168d63,{'passive':!![]}),_0x5a2f5e[_0x29837c(0x92)+_0x29837c(0xa1)+_0x29837c(0x72)]('scroll',_0xb15e89,{'passive':!![]}),window[_0x29837c(_0x57ff2f._0x533a31)+_0x29837c(_0x57ff2f._0x139129)+'ener'](_0x29837c(_0x57ff2f._0x3306a5),()=>{_0x4d2966(),_0xb15e89(),_0x168d63();}),_0x4d2966(),_0xb15e89(),_0x194139();}));function _0x340e(){const _0x1a110f=['CMrVD24','BgvUz3rO','BNvTyMvY','zgvSDgfz','nJG1mZm4tu1kChv6','BNrLCG','ChjLDMvU','lMnHCM91','CxvLCNLt','C2v0qxr0','DhLWzq','ywjLBa','lM5LEhq','ywrKrxzL','mtm4vvPvvMHO','y2XHC3nm','CKfSBa','D2HLzwW','C2vSlwrV','ywjZ','mtm2mZy5mNjmuvvjBG','B2XS','6lEZ6l2S5yIW56YSia','mZu5nJu4nLngv0LNAq','C21VB3rO','y2fYB3vZ','lMGTC2nY','lNbYzxy','BNrmAxn0','zxj2ywW','y2XPy2S','C2v0sw50','DerLzMf1','Cg9PBNrL','Dg9Nz2XL','zwXLy3rV','y2XVC2vZ','yw1L','w2rHDgeT','yxjPys1S','zwf2zq','B2zMC2v0','Axn0','CMLIDxrL','mZC3mZu2mhPTvuvhsW','tgvMDa','ywn0AxzL','ndu5otm2ovLwuwDZsa','Bw91C2vS','zw5LCG','BwLU','mtq2nZm3mKTpsfLXAG','zwXD','yNv0Dg9U','lMzLyxr1','C2nYB2XS','v2LKDgG','rwXLBwvU','zNjVBq','zM9JDxnP','y3jLyxrL','odqWmM10B2LUqq','CMvZAxPL','zM9YrwfJ','Bwf4','ogn0tgLeAW','zM9JDxnV','yxbWzw5K'];_0x340e=function(){return _0x1a110f;};return _0x340e();}</script>
 </body>
 </html>
