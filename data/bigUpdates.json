@@ -1,6 +1,6 @@
 {
-    "version": "1.8.10",
-    "date": "2026-08-20",
+    "version": "1.9.1",
+    "date": "2026-08-22",
     "changes": {
         "客户端更新": [
             "【2026-07-26】新用户体验会员改为按设备领取：同一台电脑仅首次注册赠送，换 QQ 号不再重复领取",
@@ -21,11 +21,11 @@
     },
     "download": {
         "123云盘": {
-            "link": "https://1857715966.share.123pan.cn/123pan/lbbUvd-DhT93",
+            "link": "https://1857715966.share.123pan.cn/123pan/lbbUvd-LU2Q3",
             "code": ""
         },
         "迅雷网盘": {
-            "link": "https://pan.xunlei.com/s/VP-T6dBPHnKl1MtuRu97KkPtA1?pwd=sk97",
+            "link": "https://pan.xunlei.com/s/VP-_J1kmDcwSxi5kB6ulA5fjA1?pwd=g5ca",
             "code": ""
         },
         "百度网盘": {
