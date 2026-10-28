@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#0B0D10"/>
+  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="13.25" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="33" y="42" text-anchor="middle"
+        font-family="Arial Black, Impact, Segoe UI Black, Microsoft YaHei UI, sans-serif"
+        font-size="22" font-weight="900" font-style="italic" letter-spacing="-0.04em"
+        fill="#F8FAFC">CK!</text>
+</svg>

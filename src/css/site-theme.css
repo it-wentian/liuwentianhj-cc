@@ -1,7 +1,52 @@
 /**
- * AI的复仇 — 站点统一主题
+ * CK红警防守平台 — 站点统一主题
  * 以首页 index.html 的军事暗色 + 警戒红/警示黄/科技青 为准
  */
+
+.ck-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.ck-brand img {
+  width: 40px;
+  height: 40px;
+  display: block;
+  flex: none;
+}
+.ck-brand .ck-name {
+  color: #FFCC00;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+.ck-hero-mark {
+  font-family: "Arial Black", Impact, "Segoe UI Black", "Microsoft YaHei UI", sans-serif;
+  font-size: clamp(72px, 12vw, 120px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin: 0 auto 8px;
+  background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 28%, #94a3b8 58%, #f1f5f9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 3px 0 #1e293b) drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55));
+  transform: skewX(-8deg);
+}
+.ck-hero-sub {
+  font-size: clamp(16px, 2.2vw, 26px);
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.38em;
+  text-indent: 0.38em;
+  color: #e2e8f0;
+  margin: 0 0 18px;
+}
 :root {
   --air-primary: #CC0000;
   --air-secondary: #FFCC00;
